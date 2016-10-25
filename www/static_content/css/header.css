@@ -10,19 +10,19 @@ header {
 header h1 {
     font-size: 1.875em;
     font-weight: 300;
-    padding: 7px 0 0 10px;
 }
 
 header h1 a {
+    display: block;
     width: 100%;
     color: white;
+    padding: 7px 0 0 10px;
+    height: 58px;
 }
 
 header .nav {
     display: none;
 }
-
-
 
 .menu-btn-off img, .menu-btn-on img {
     display: block;
@@ -37,4 +37,37 @@ header .nav {
 
 .menu-btn-on {
     background-color: #FEF7F3;
+}
+
+@media screen and (min-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header .nav {
+        display: flex;
+    }
+
+    header .nav p {
+        color: white;
+        text-align:right;
+        font-size: 1.125em;
+        font-weight: 300;
+        margin: 0 15px 0 auto;
+        padding:15px 0 9px 0;
+    }
+
+    header .nav a {
+        color: white;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .menu-btn-off,
+    .menu-btn-off {
+        display: none;
+    }
 }

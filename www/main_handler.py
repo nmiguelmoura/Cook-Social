@@ -2,4 +2,4 @@ import handler
 
 class MainHandler(handler.Handler):
     def get(self):
-        self.render("base.html")
+        self.render("main.html")

@@ -8,3 +8,48 @@
     z-index: 999;
     display: none;
 }
+
+article {
+    padding: 0 10px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.5em;
+    width: 100%;
+    color: #EC5800;
+    margin: 20px 0;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    h2 {
+        font-size: 1.75em;
+    }
+}
+
+.generic-text {
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.button {
+    background-color: #FEF7F3;
+    height: 52px;
+    display: table;
+    text-decoration:none;
+    color: #EC5800;
+    box-shadow: 0 0 4px #888;
+    font-size: 1.25em;
+    margin: 20px 0 5px 0;
+}
+
+.button p {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.button:active{
+    box-shadow: none;
+}

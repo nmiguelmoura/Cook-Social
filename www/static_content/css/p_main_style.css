@@ -1,0 +1,7 @@
+.main-page .button {
+    width: calc(50% - 5px);
+}
+
+.main-page .button:first-child {
+    margin-right: 10px;
+}

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="static_content/css/header.css">
     <link rel="stylesheet" href="static_content/css/nav.css">
     <link rel="stylesheet" href="static_content/css/footer.css">
+    <link rel="stylesheet" href="static_content/css/p_main_style.css">
     {% block styles %}
 
     {% endblock %}
@@ -18,18 +19,20 @@
 </head>
 <body>
     <div class="fade-background"></div>
-    <header class="wrapper">
-        <h1 class="col-sm-10-12"><a href="/">Cook Social</a></h1>
-        <div class="wrapper nav">
-            <p><a href="">My kitchen</a></p>
-            <p><a href="">My recipes</a></p>
-            <p><a href="">Publish recipe</a></p>
-            <p><a href="">New publications</a></p>
-            <p><a href="">Top voted</a></p>
-            <p><a href="">Contact</a></p>
-        </div>
-        <div class="col-sm-2-12 menu-btn-off">
-            <img class="menu-btn-img" src="static_content/assets/menu_off.png">
+    <header>
+        <div class="wrapper">
+            <h1 class="col-sm-10-12 col-md-11-12 col-lg-4-12"><a href="/">Cook Social</a></h1>
+            <div class="wrapper-inside nav col-lg-8-12">
+                <p><a href="">My kitchen</a></p>
+                <p><a href="">My recipes</a></p>
+                <p><a href="">Publish recipe</a></p>
+                <p><a href="">what's new</a></p>
+                <p><a href="">Top voted</a></p>
+                <p><a href="">Contact</a></p>
+            </div>
+            <div class="col-sm-2-12 col-md-1-12 menu-btn-off">
+                <img class="menu-btn-img" src="static_content/assets/menu_off.png">
+            </div>
         </div>
     </header>
     <nav>
@@ -37,37 +40,29 @@
             <li><a href="">My kitchen</a></li>
             <li><a href="">My recipes</a></li>
             <li><a href="">Publish recipe</a></li>
-            <li><a href="">New publications</a></li>
+            <li><a href="">What's new</a></li>
             <li><a href="">Top voted</a></li>
             <li><a href="">Contact</a></li>
         </ul>
     </nav>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
     {% block content %}
 
     {% endblock %}
 
-    <footer class="wrapper">
-        <div class="footer-top col-sm-12-12">
-            <p><a href="">My kitchen</a></p>
-            <p><a href="">My recipes</a></p>
-            <p><a href="">Publish recipe</a></p>
-            <p><a href="">New publications</a></p>
-            <p><a href="">Top voted</a></p>
-            <p><a href="">Contact us</a></p>
+    <footer>
+        <div class="wrapper">
+            <ul class="footer-top col-sm-12-12">
+                <li><a href="">My kitchen</a></li>
+                <li><a href="">My recipes</a></li>
+                <li><a href="">Publish recipe</a></li>
+                <li><a href="">What's new</a></li>
+                <li><a href="">Top voted</a></li>
+                <li><a href="">Contact us</a></li>
+            </ul>
         </div>
-        <hr class="col-sm-12-12">
-        <div class="footer-bottom col-sm-12-12">
+        <hr>
+        <div class="footer-bottom">
             <a href="/"><h4>Cook Social</h4></a>
         </div>
     </footer>

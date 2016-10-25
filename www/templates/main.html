@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="wrapper main-content main-page">
+    <picture class="main-picture">
+        <source srcset="static_content/assets/title_image_small.jpg 1x, static_content/assets/title_image_small@2x.jpg 2x" media="(max-width:320px)">
+        <source srcset="static_content/assets/title_image_medium.jpg 1x, static_content/assets/title_image_medium@2x.jpg 2x" media="(max-width:768px)">
+        <source srcset="static_content/assets/title_image_big.jpg 1x, static_content/assets/title_image_big@2x.jpg 2x" media="(min-width:769px)">
+        <img src="static_content/assets/title_image_medium.jpg" alt="Cook Social">
+    </picture>
+    <article>
+        <h2>Welcome</h2>
+        <p class="generic-text">This is Cook Social, a place where you can start sharing your cooking recipes.</p>
+        <div class="wrapper-inside">
+            <a href="/login" class="button"><p>Login</p></a>
+            <a href="/signup" class="button"><p>Signup</p></a>
+        </div>
+    </article>
+    <article>
+        <h2>What's new?</h2>
+        <div class="recipe-rectangle">
+            <div class="left-side">
+                <img src="" alt="">
+                <h3>Arroz de pato</h3>
+                <p class="author">nmiguelmoura</p>
+                <p class="prepTime">Preparation time: 5min</p>
+            </div>
+            <div class="right-side">
+                <p>5<br><span class="small-text">points</span></p>
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock %}

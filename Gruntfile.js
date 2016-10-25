@@ -63,8 +63,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'image_src/tiles/',
-          dest: 'www/assets/'
+          cwd: 'image_or/tiles/',
+          dest: 'www/static_content/assets/'
         }]
       }
     }
