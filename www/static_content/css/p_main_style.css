@@ -2,8 +2,8 @@
     width: 100%;
 }
 
-.main-picture-alternative {
-    display: none;
+.main-picture img {
+    width: 100%;
 }
 
 .main-page .button {
@@ -25,16 +25,5 @@
     .main-picture {
         height: 350px;
         overflow: hidden;
-    }
-}
-
-@media screen and (min-width: 2048px) {
-    .main-picture picture {
-        display: none;
-    }
-
-    .main-picture .main-picture-alternative {
-        display: block;
-        width: 100%;
     }
 }
