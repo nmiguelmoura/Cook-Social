@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="page-content" class="signup">
+    <article class="padded-col-sm-12-12">
+        <h2>Signup</h2>
+        <form method="post">
+            <div class="input-labels">
+                <label>
+                    <p>Username</p>
+                    <input type="text" placeholder="Insert your username" name="username">
+                    <p class="error-message">{{error_username}}</p>
+                </label>
+                <label>
+                    <p>Email</p>
+                    <input type="email" placeholder="Insert your email" name="email">
+                    <p class="error-message">{{error_email}}</p>
+                </label>
+                <label>
+                    <p>Password</p>
+                    <input type="password" placeholder="Insert your password" name="password">
+                    <p class="error-message">{{error_password}}</p>
+                </label>
+                <label>
+                    <p>Verify password</p>
+                    <input type="password" placeholder="Insert your password again" name="verify">
+                    <p class="error-message"></p>
+                </label>
+            </div>
+            <div class="button-container col-xs-12-12">
+                <div class="input-submit">
+                    <input type="submit" value="Create account">
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <div class="other-options">
+            <p class="generic-text strong-text">Already have an account?</p>
+            <div class="button-container col-xs-12-12">
+                <a href="/login" class="button"><p>Login</p></a>
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+form label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+form label p {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 0;
+    font-size: 0.875em;
+    text-indent: 5px;
+    height: 40px;
+    font-weight: 400;
+}
+
+form textarea {
+    height: 120px;
+}
+
+form .button-container {
+
+}

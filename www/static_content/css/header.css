@@ -24,11 +24,23 @@ header .nav {
     display: none;
 }
 
-.menu-btn-off img, .menu-btn-on img {
+.menu-btn-off .bg-image, .menu-btn-on .bg-image {
     display: block;
     width: 36px;
     margin: 14px auto;
     cursor: pointer;
+    width: 36px;
+    height: 29px;
+}
+
+.menu-btn-off .bg-image {
+    background: url(../assets/menu_off.png);
+    background-size: 36px 29px;
+}
+
+.menu-btn-on .bg-image {
+    background: url(../assets/menu_on.png);
+    background-size: 36px 29px;
 }
 
 .menu-btn-off {

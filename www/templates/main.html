@@ -1,80 +1,86 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="main-picture">
-    <picture>
-        <source srcset="static_content/assets/title_image_small.jpg 1x, static_content/assets/title_image_small@2x.jpg 2x" media="(max-width:320px)">
-        <source srcset="static_content/assets/title_image_medium.jpg 1x, static_content/assets/title_image_medium@2x.jpg 2x" media="(max-width:768px)">
-        <source srcset="static_content/assets/title_image_big.jpg 1x, static_content/assets/title_image_big@2x.jpg 2x" media="(max-width:1024px)">
-        <source srcset="static_content/assets/title_image_extra_big.jpg 1x, static_content/assets/title_image_extra_big@2x.jpg 2x" media="(min-width: 1025px)">
-        <img src="static_content/assets/title_image_medium.jpg" alt="Cook Social">
-    </picture>
-</div>
-<div class="wrapper main-content main-page">
-    <article>
-        <h2>Welcome</h2>
-        <p class="generic-text">This is Cook Social, a place where you can start sharing your cooking recipes.</p>
-        <div class="wrapper-inside">
-            <a href="/login" class="button"><p>Login</p></a>
-            <a href="/signup" class="button"><p>Signup</p></a>
-        </div>
-    </article>
-    <article>
-        <h2>What's new?</h2>
-        <div class="recipes-container-rectangles">
-            <a href=""><div class="wrapper-inside recipe-rectangle">
-                <div class="col-sm-3-12 recipe-image">
-                    <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
+<div id="page-content" class="main">
+    <div class="main-picture">
+        <picture>
+            <source srcset="static_content/assets/title_image_small.jpg 1x, static_content/assets/title_image_small@2x.jpg 2x" media="(max-width:320px)">
+            <source srcset="static_content/assets/title_image_medium.jpg 1x, static_content/assets/title_image_medium@2x.jpg 2x" media="(max-width:768px)">
+            <source srcset="static_content/assets/title_image_big.jpg 1x, static_content/assets/title_image_big@2x.jpg 2x" media="(max-width:1024px)">
+            <source srcset="static_content/assets/title_image_extra_big.jpg 1x, static_content/assets/title_image_extra_big@2x.jpg 2x" media="(min-width: 1025px)">
+            <img src="static_content/assets/title_image_medium.jpg" alt="Cook Social">
+        </picture>
+    </div>
+    <div class="wrapper main-content main-page">
+        <article class="padded-col-sm-12-12 padded-col-md-12-12">
+            <h2>Welcome</h2>
+            <p class="generic-text">This is Cook Social, a place where you can start sharing your cooking recipes.</p>
+            <div class="wrapper-inside buttons">
+                <div class="button-container col-sm-6-12 col-md-6-12">
+                    <a href="/login" class="button"><p>Login</p></a>
                 </div>
-                <div class="col-sm-7-12 recipe-left-side">
-                    <h3 class="make-ellipsis">Arroz de pato</h3>
-                    <p class="author make-ellipsis">nmiguelmoura</p>
-                    <p class="prep-time">Preparation time: 5min</p>
+                <div class="button-container col-sm-6-12 col-md-6-12">
+                    <a href="/signup" class="button"><p>Signup</p></a>
                 </div>
-                <div class="col-sm-2-12 recipe-right-side">
-                    <p>5<br><span class="small-text">pts</span></p>
-                </div>
-            </div></a>
-            <a href=""><div class="wrapper-inside recipe-rectangle">
-                <div class="col-sm-3-12 recipe-image">
-                    <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
-                </div>
-                <div class="col-sm-7-12 recipe-left-side">
-                    <h3 class="make-ellipsis">Arroz de pato</h3>
-                    <p class="author make-ellipsis">nmiguelmoura</p>
-                    <p class="prep-time">Preparation time: 5min</p>
-                </div>
-                <div class="col-sm-2-12 recipe-right-side">
-                    <p>5<br><span class="small-text">pts</span></p>
-                </div>
-            </div></a>
-            <a href=""><div class="wrapper-inside recipe-rectangle">
-                <div class="col-sm-3-12 recipe-image">
-                    <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
-                </div>
-                <div class="col-sm-7-12 recipe-left-side">
-                    <h3 class="make-ellipsis">Arroz de pato</h3>
-                    <p class="author make-ellipsis">nmiguelmoura</p>
-                    <p class="prep-time">Preparation time: 5min</p>
-                </div>
-                <div class="col-sm-2-12 recipe-right-side">
-                    <p>5<br><span class="small-text">pts</span></p>
-                </div>
-            </div></a>
-            <a href=""><div class="wrapper-inside recipe-rectangle">
-                <div class="col-sm-3-12 recipe-image">
-                    <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
-                </div>
-                <div class="col-sm-7-12 recipe-left-side">
-                    <h3 class="make-ellipsis">Arroz de pato</h3>
-                    <p class="author make-ellipsis">nmiguelmoura</p>
-                    <p class="prep-time">Preparation time: 5min</p>
-                </div>
-                <div class="col-sm-2-12 recipe-right-side">
-                    <p>5<br><span class="small-text">pts</span></p>
-                </div>
-            </div></a>
-        </div>
-    </article>
+            </div>
+        </article>
+        <article class="col-sm-12-12 padded-col-md-12-12">
+            <h2>What's new?</h2>
+            <div class="recipes-container-rectangles">
+                <a href=""><div class="wrapper-inside recipe-rectangle">
+                    <div class="col-sm-3-12 recipe-image">
+                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
+                    </div>
+                    <div class="col-sm-7-12 recipe-left-side">
+                        <h3 class="make-ellipsis">Arroz de pato</h3>
+                        <p class="author make-ellipsis">nmiguelmoura</p>
+                        <p class="prep-time">Preparation time: 5min</p>
+                    </div>
+                    <div class="col-sm-2-12 recipe-right-side">
+                        <p>5<br><span class="small-text">pts</span></p>
+                    </div>
+                </div></a>
+                <a href=""><div class="wrapper-inside recipe-rectangle">
+                    <div class="col-sm-3-12 recipe-image">
+                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
+                    </div>
+                    <div class="col-sm-7-12 recipe-left-side">
+                        <h3 class="make-ellipsis">Arroz de pato</h3>
+                        <p class="author make-ellipsis">nmiguelmoura</p>
+                        <p class="prep-time">Preparation time: 5min</p>
+                    </div>
+                    <div class="col-sm-2-12 recipe-right-side">
+                        <p>5<br><span class="small-text">pts</span></p>
+                    </div>
+                </div></a>
+                <a href=""><div class="wrapper-inside recipe-rectangle">
+                    <div class="col-sm-3-12 recipe-image">
+                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
+                    </div>
+                    <div class="col-sm-7-12 recipe-left-side">
+                        <h3 class="make-ellipsis">Arroz de pato</h3>
+                        <p class="author make-ellipsis">nmiguelmoura</p>
+                        <p class="prep-time">Preparation time: 5min</p>
+                    </div>
+                    <div class="col-sm-2-12 recipe-right-side">
+                        <p>5<br><span class="small-text">pts</span></p>
+                    </div>
+                </div></a>
+                <a href=""><div class="wrapper-inside recipe-rectangle">
+                    <div class="col-sm-3-12 recipe-image">
+                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
+                    </div>
+                    <div class="col-sm-7-12 recipe-left-side">
+                        <h3 class="make-ellipsis">Arroz de pato</h3>
+                        <p class="author make-ellipsis">nmiguelmoura</p>
+                        <p class="prep-time">Preparation time: 5min</p>
+                    </div>
+                    <div class="col-sm-2-12 recipe-right-side">
+                        <p>5<br><span class="small-text">pts</span></p>
+                    </div>
+                </div></a>
+            </div>
+        </article>
+    </div>
 </div>
 {% endblock %}

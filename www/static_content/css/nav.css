@@ -1,9 +1,10 @@
 nav {
-    position: relative;
+    position: absolute;
     background-color: #FEF7F3;
     padding: 8px 0;
     z-index: 1001;
     display: none;
+    width: 100%;
 }
 
 nav li {

@@ -6,24 +6,24 @@
     width: 100%;
 }
 
-.main-page .button {
-    width: calc(50% - 10px);
+.buttons .button-container:first-child {
+    padding-right: 5px;
 }
 
-.main-page .button:first-child {
-    margin-right: 20px;
+.buttons .button-container:last-child {
+    padding-left: 5px;
 }
 
 @media screen and (min-width: 480px) {
     .main-picture {
-        height: 300px;
+        max-height: 300px;
         overflow: hidden;
     }
 }
 
 @media screen and (min-width: 1024px){
     .main-picture {
-        height: 350px;
+        max-height: 350px;
         overflow: hidden;
     }
 }

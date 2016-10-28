@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="page-content" class="edit-personal-data">
+    <article class="padded-col-sm-12-12">
+        <h2>Edit personal data</h2>
+        <form method="post">
+            <div class="input-labels">
+                <label>
+                    <p>Email</p>
+                    <input type="email" placeholder="Insert your email" name="email">
+                    <p class="error-message">{{error_email}}</p>
+                </label>
+                <label>
+                    <p>Password</p>
+                    <input type="password" placeholder="Insert your password" name="password">
+                    <p class="error-message">{{error_password}}</p>
+                </label>
+                <label>
+                    <p>Verify password</p>
+                    <input type="password" placeholder="Insert your password again" name="verify">
+                    <p class="error-message"></p>
+                </label>
+            </div>
+            <div class="button-container col-xs-12-12">
+                <div class="input-submit">
+                    <input type="submit" value="Save changes">
+                </div>
+            </div>
+        </form>
+    </article>
+</div>
+{% endblock %}

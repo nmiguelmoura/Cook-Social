@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       },
       build:{
         files:{
-
+          "www/static_content/js/builds/engine.min.js":["www/static_content/js/popup_bar.js","www/static_content/js/main.js"]
         }
       }
     },

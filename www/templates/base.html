@@ -12,64 +12,72 @@
     <link rel="stylesheet" href="static_content/css/nav.css">
     <link rel="stylesheet" href="static_content/css/footer.css">
     <link rel="stylesheet" href="static_content/css/recipes_container_rectangles.css">
-    <link rel="stylesheet" href="static_content/css/p_main_style.css">
+    <link rel="stylesheet" href="static_content/css/forms.css">
+    <!--<link rel="stylesheet" href="static_content/css/p_main_style.css">-->
+    <link rel="stylesheet" href="static_content/css/p_generic_forms_style.css">
     {% block styles %}
 
     {% endblock %}
 
 </head>
 <body>
-    <div class="fade-background"></div>
-    <header>
-        <div class="wrapper">
-            <h1 class="col-sm-10-12 col-md-11-12 col-lg-4-12"><a href="/">Cook Social</a></h1>
-            <div class="wrapper-inside nav col-lg-8-12">
-                <p><a href="/mykitchen">My kitchen</a></p>
-                <p><a href="/myrecipes">My recipes</a></p>
-                <p><a href="/publish">Publish recipe</a></p>
-                <p><a href="/whatsnew">what's new</a></p>
-                <p><a href="/topvoted">Top voted</a></p>
-                <p><a href="/contact">Contact</a></p>
+    <div class="global-container">
+        <div class="fade-background"></div>
+        <header>
+            <div class="wrapper">
+                <h1 class="col-sm-10-12 col-md-11-12 col-lg-4-12"><a href="/">Cook Social</a></h1>
+                <div class="wrapper-inside nav col-lg-8-12">
+                    <p><a href="/mykitchen">My kitchen</a></p>
+                    <p><a href="/myrecipes">My recipes</a></p>
+                    <p><a href="/publish">Publish recipe</a></p>
+                    <p><a href="/whatsnew">what's new</a></p>
+                    <p><a href="/topvoted">Top voted</a></p>
+                    <p><a href="/contact">Contact</a></p>
+                </div>
+                <div class="col-sm-2-12 col-md-1-12 menu-btn menu-btn-off">
+                    <!--<img class="menu-btn-img" src="static_content/assets/menu_off.png">-->
+                    <div class="bg-image"></div>
+                </div>
             </div>
-            <div class="col-sm-2-12 col-md-1-12 menu-btn-off">
-                <img class="menu-btn-img" src="static_content/assets/menu_off.png">
-            </div>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/mykitchen">My kitchen</a></li>
-            <li><a href="/myrecipes">My recipes</a></li>
-            <li><a href="/publish">Publish recipe</a></li>
-            <li><a href="/whatsnew">What's new</a></li>
-            <li><a href="/topvoted">Top voted</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    {% block content %}
-
-    {% endblock %}
-
-    <footer>
-        <div class="wrapper">
-            <ul class="footer-top col-sm-12-12">
+        </header>
+        <nav>
+            <ul>
                 <li><a href="/mykitchen">My kitchen</a></li>
                 <li><a href="/myrecipes">My recipes</a></li>
                 <li><a href="/publish">Publish recipe</a></li>
                 <li><a href="/whatsnew">What's new</a></li>
                 <li><a href="/topvoted">Top voted</a></li>
-                <li><a href="/contact">Contact us</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
-        </div>
-        <hr>
-        <div class="footer-bottom">
-            <a href="/"><h4>Cook Social</h4></a>
-        </div>
-    </footer>
+        </nav>
 
+        {% block content %}
+
+        {% endblock %}
+
+        <footer>
+            <div class="wrapper">
+                <ul class="footer-top col-sm-12-12">
+                    <li><a href="/mykitchen">My kitchen</a></li>
+                    <li><a href="/myrecipes">My recipes</a></li>
+                    <li><a href="/publish">Publish recipe</a></li>
+                    <li><a href="/whatsnew">What's new</a></li>
+                    <li><a href="/topvoted">Top voted</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <a href="/"><h4>Cook Social</h4></a>
+            </div>
+        </footer>
+    </div>
     {% block scripts %}
 
     {% endblock %}
+    <script>var cookSocial={};</script>
+    <!--<script src="static_content/js/popup_bar.js"></script>
+    <script src="static_content/js/main.js"></script>-->
+    <script src="static_content/js/builds/engine.min.js"></script>
 </body>
 </html>
