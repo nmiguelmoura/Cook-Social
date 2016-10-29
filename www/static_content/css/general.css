@@ -1,3 +1,4 @@
+/*setup to get footer always on bottom of page*/
 html,
 body {
     height: 100%;
@@ -8,7 +9,7 @@ body {
     position: relative;
 }
 
-#page-content {
+.page-content {
     padding-bottom: 283px;
 }
 
@@ -19,6 +20,12 @@ footer {
 	left:0;
 }
 
+/*Define margin between sections*/
+section {
+    margin-bottom: 35px;
+}
+
+/*style for fade background when menu bar open*/
 .fade-background {
     position: fixed;
     top: 0;
@@ -30,6 +37,7 @@ footer {
     display: none;
 }
 
+/*style for texts*/
 h2 {
     font-size: 1.5em;
     width: 100%;
@@ -55,55 +63,6 @@ h2 {
     font-weight: 700;
 }
 
-.special-link {
-    color: #EC5800;
-    text-align:center;
-    font-size: 1em;
-    width: 100%;
-    display: block;
-}
-
-.button, .input-submit {
-    background-color: #FEF7F3;
-    width: 100%;
-    height: 52px;
-    display: table;
-    text-decoration:none;
-    box-shadow: 2px 2px 2px #CCC;
-    margin: 20px 0 5px 0;
-}
-
-.button p, input[type="submit"] {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-    width: 100%;
-    height: 52px;
-    font-size: 1.25em;
-    color: #EC5800;
-    cursor: pointer;
-}
-
-.input-submit input[type="submit"]{
-    padding: 0;
-    border: none;
-    background: none;
-}
-
-.button:active{
-    box-shadow: none;
-}
-
-.make-table {
-    display: table;
-}
-
-.make-table-cell {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-}
-
 .small-text {
     font-size: 0.625em;
 }
@@ -121,12 +80,27 @@ h2 {
     text-overflow: ellipsis;
 }
 
-.extra-space {
-    display: none;
+.special-link {
+    color: #EC5800;
+    text-align:center;
+    font-size: 1em;
+    width: 100%;
+    display: block;
+}
+
+/*miscellaneous*/
+.make-table {
+    display: table;
+}
+
+.make-table-cell {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
 }
 
 @media screen and (min-width: 768px) {
-    #page-content {
+    .page-content {
         padding-bottom: 187px;
     }
 
@@ -148,8 +122,8 @@ h2 {
 }
 
 @media screen and (min-width: 1024px) {
-    #page-content {
-        padding-bottom: 153px;
+    .page-content {
+        padding-bottom: 163px;
     }
 
     footer {

@@ -15,6 +15,17 @@
     max-width: none;
 }
 
+/*
+This wrapper doesn't use grid system with flex-box.
+It's just a container with a max-width of 480px
+*/
+.wrapper-special {
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 [class*='padded-col-sm'] {
     padding: 0 5px;
 }

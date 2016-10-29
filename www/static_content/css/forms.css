@@ -1,9 +1,9 @@
-form label {
+form .label {
     display: block;
     margin-bottom: 20px;
 }
 
-form label p {
+form .label p {
     font-size: 1em;
     font-weight: 700;
     margin-bottom: 5px;

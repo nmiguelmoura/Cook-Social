@@ -1,7 +1,9 @@
 .other-options .button {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
-.top .other-options .button-container {
-    margin-bottom: 8px;
+.other-options .button-container {
+    margin-bottom: 14px;
+    margin-left: auto;
+    margin-right: auto;
 }

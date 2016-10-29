@@ -1,4 +1,4 @@
-article .recipes-container-rectangles {
+.recipes-container-rectangles {
     width: 100%;
 }
 
@@ -52,7 +52,7 @@ article .recipes-container-rectangles {
 }
 
 @media screen and (min-width: 768px) {
-    article .recipes-container-rectangles {
+    .recipes-container-rectangles {
         column-count: 2;
         column-gap: 10px;
         margin-left: 0;

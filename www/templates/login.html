@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="page-content" class="login">
-    <article class="padded-col-sm-12-12">
+<div id="login" class="page-content wrapper-special">
+    <section class="padded-col-sm-12-12">
         <h2>Login</h2>
         <form method="post">
             <div class="input-labels">
-                <label>
-                <p>Username</p>
-                <input type="text" placeholder="Insert your username" name="username">
-            </label>
-            <label>
-                <p>Password</p>
-                <input type="password" placeholder="Insert your password" name="password">
-                <p class="error-message"> {{error_message}}</p>
-            </label>
+                <div class="label">
+                    <p>Username</p>
+                    <input type="text" placeholder="Insert your username" name="username">
+                </div>
+                <div class="label">
+                    <p>Password</p>
+                    <input type="password" placeholder="Insert your password" name="password">
+                    <p class="error-message"> {{error_message}}</p>
+                </div>
             </div>
             <div class="button-container col-sm-12-12">
                 <div class="input-submit">
@@ -22,15 +22,14 @@
                 </div>
             </div>
         </form>
+    </section>
+    <section class="padded-col-sm-12-12 other-options">
+        <a href="/forgotPassword" class="special-link">Forgot my password</a>
         <br>
-        <div class="other-options">
-            <a href="/forgotPassword" class="special-link">Forgot my password</a>
-            <br>
-            <p class="generic-text strong-text">I don't have an account</p>
-            <div class="button-container col-sm-12-12">
-                <a href="/signup" class="button"><p>Signup</p></a>
-            </div>
+        <p class="generic-text strong-text">I don't have an account</p>
+        <div class="button-container col-sm-12-12">
+            <a href="/signup" class="button"><p>Signup</p></a>
         </div>
-    </article>
+    </section>
 </div>
 {% endblock %}

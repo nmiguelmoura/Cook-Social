@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="page-content" class="top">
-    <article class="padded-col-sm-12-12 padded-col-md-12-12">
+<div id="top" class="page-content wrapper">
+    <section class="padded-col-sm-12-12">
         <h2>Top voted</h2>
-        <p class="generic-text generic-text-left">These are the top voted recipes in Cook Social:</p>
-    </article>
-    <article class="col-sm-12-12 padded-col-md-12-12">
+        <p class="generic-text generic-text-left">These are the top voted recipes on Cook Social:</p>
         <div class="recipes-container-rectangles">
-                <a href=""><div class="wrapper-inside recipe-rectangle">
+            <a href="">
+                <article class="wrapper-inside recipe-rectangle">
                     <div class="col-sm-3-12 recipe-image">
                         <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
                     </div>
@@ -20,8 +19,10 @@
                     <div class="col-sm-2-12 recipe-right-side">
                         <p>5<br><span class="small-text">pts</span></p>
                     </div>
-                </div></a>
-                <a href=""><div class="wrapper-inside recipe-rectangle">
+                </article>
+            </a>
+            <a href="">
+                <article class="wrapper-inside recipe-rectangle">
                     <div class="col-sm-3-12 recipe-image">
                         <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
                     </div>
@@ -33,8 +34,10 @@
                     <div class="col-sm-2-12 recipe-right-side">
                         <p>5<br><span class="small-text">pts</span></p>
                     </div>
-                </div></a>
-                <a href=""><div class="wrapper-inside recipe-rectangle">
+                </article>
+            </a>
+            <a href="">
+                <article class="wrapper-inside recipe-rectangle">
                     <div class="col-sm-3-12 recipe-image">
                         <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
                     </div>
@@ -46,8 +49,10 @@
                     <div class="col-sm-2-12 recipe-right-side">
                         <p>5<br><span class="small-text">pts</span></p>
                     </div>
-                </div></a>
-                <a href=""><div class="wrapper-inside recipe-rectangle">
+                </article>
+            </a>
+            <a href="">
+                <article class="wrapper-inside recipe-rectangle">
                     <div class="col-sm-3-12 recipe-image">
                         <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
                     </div>
@@ -59,14 +64,13 @@
                     <div class="col-sm-2-12 recipe-right-side">
                         <p>5<br><span class="small-text">pts</span></p>
                     </div>
-                </div></a>
-            </div>
-    </article>
-    <br>
-    <br>
-    <article class="padded-col-sm-12-12">
-        <div class="other-options wrapper-inside">
-            <p class="generic-text strong-text col-sm-12-12">Publish or view your own recipes</p>
+                </article>
+            </a>
+        </div>
+    </section>
+    <section class="padded-col-sm-12-12">
+        <div class="other-options">
+            <p class="generic-text strong-text">Publish or view your own recipes</p>
             <div class="button-container col-sm-12-12 padded-col-md-6-12">
                 <a href="/publish" class="button"><p>Publish new recipe</p></a>
             </div>
@@ -74,6 +78,6 @@
                 <a href="/mykitchen" class="button"><p>My kitchen</p></a>
             </div>
         </div>
-    </article>
+    </section>
 </div>
 {% endblock %}

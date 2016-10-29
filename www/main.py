@@ -9,6 +9,7 @@ import forgot_password_handler
 import contact_handler
 import top_handler
 import news_handler
+import kitchen_handler
 
 # Defines de routers.
 app = webapp2.WSGIApplication([
@@ -20,5 +21,6 @@ app = webapp2.WSGIApplication([
     ("/forgotpassword", forgot_password_handler.ForgotPasswordHandler),
     ("/contact", contact_handler.ContactHandler),
     ("/top", top_handler.TopHandler),
-    ("/news", news_handler.NewsHandler)
+    ("/news", news_handler.NewsHandler),
+    ("/kitchen", kitchen_handler.KitchenHandler)
 ], debug=True)
