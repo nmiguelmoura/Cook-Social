@@ -1,3 +1,5 @@
+/* common styles for news & top viewed and for my recipes*/
+
 .recipes-container-rectangles {
     width: 100%;
 }
@@ -5,7 +7,9 @@
 .recipe-rectangle {
     background-color: #FEF7F3;
     width: 100%;
+    /**/
     height: 60px;
+
     margin-bottom: 5px;
 }
 
@@ -36,6 +40,9 @@
 }
 
 .recipe-left-side .prep-time {
+    font-size: 0.875em;
+    color: #979797;
+    padding-top: 7px;
     display: none;
 }
 
@@ -46,9 +53,45 @@
 .recipe-right-side p {
     font-size: 1.56em;
     text-align: center;
-    color: #979797;
+    color: #EC5800;
     line-height: 0.8em;
     padding-top: 10px;
+}
+
+/* styles for my-recipes only*/
+#my-recipes .recipe-rectangle {
+    height: auto;
+}
+
+#my-recipes .prep-time {
+    display: block;
+}
+
+.recipe-components {
+    border-top: 1px solid white;
+    padding: 5px;
+}
+
+.recipe-components ul {
+    column-count: 2;
+}
+
+.recipe-components li {
+    list-style: none;
+    font-size: 0.875em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recipe-open {
+    border-top: 1px solid white;
+}
+
+.recipe-open p {
+    text-align: center;
+    color: #EC5800;
+    padding: 5px 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -77,13 +120,78 @@
 
     .recipe-left-side .prep-time {
         display: block;
-        font-size: 0.875em;
-        color: #979797;
-        padding-top: 7px;
     }
 
     .recipe-right-side p {
         font-size: 1.875em;
         padding-top: 22px;
+    }
+
+
+    /*style for my-recipes only*/
+
+    #my-recipes article {
+        margin-bottom: 10px;
+    }
+
+    #my-recipes .recipes-container-rectangles {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+    #my-recipes .recipe-left-side {
+        order: 0;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    #my-recipes .recipe-right-side{
+        order: 1;
+    }
+
+    #my-recipes .recipe-right-side p {
+        padding-top: 11px;
+    }
+
+    #my-recipes .recipe-image {
+        order: 2;
+        padding: 0;
+        height: 180px;
+        overflow: hidden;
+        border-top: 1px solid white;
+        position: relative;
+    }
+
+    #my-recipes .recipe-rectangle .recipe-image img {
+        position: absolute;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        webkit-transform: translateY(-50%) translateX(-50%);
+        transform: translateY(-50%) translateX(-50%);
+        padding: 0;
+        margin: 0;
+    }
+
+    #my-recipes .recipe-components {
+        order: 3;
+        padding-left: 10px;
+        height: 180px;
+        border-left: 1px solid white;
+    }
+
+    #my-recipes .recipe-components ul {
+        padding-top:4px;
+    }
+
+     #my-recipes .recipe-components li {
+         margin-bottom: 3px;
+         font-size: 0.75em;
+    }
+
+    #my-recipes .recipe-open {
+        order: 4;
+        padding: 8px 0;
     }
 }

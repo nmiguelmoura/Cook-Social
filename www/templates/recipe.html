@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="recipe" class="page-content wrapper">
+    <section class="col-sm-12-12 title">
+        <h2 class="make-ellipsis">Arroz de pato</h2>
+        <p class="generic-text make-ellipsis">Cooked by <a href="" class="special-link-inline">nmiguelmoura</a></p>
+        <div class="prep image-container">
+            <img srcset="static_content/assets/image_placeholder_repeated.png 1x, static_content/assets/image_placeholder_repeated@2x.png, 2x" src="static_content/assets/image_placeholder_repeated.png">
+        </div>
+        <div class="topics padded-col-sm-12-12 padded-col-md-12-12">
+            <div class="prep-time">
+                <p class="generic-topic strong-text">Preparation time</p>
+                <p class="generic-topic">50 minutes</p>
+            </div>
+            <div class="prep-components">
+                <p class="generic-topic strong-text">What do I need?</p>
+                <ul>
+                    <li>Ingrediente 0</li>
+                    <li>Ingrediente 1</li>
+                    <li>Ingrediente 2</li>
+                    <li>Ingrediente 3</li>
+                    <li>Ingrediente 4</li>
+                    <li>Ingrediente 5</li>
+                    <li>Ingrediente 6</li>
+                    <li>Ingrediente 7</li>
+                    <li>Ingrediente 8</li>
+                    <li>Ingrediente 9</li>
+                    <li>Ingrediente 10</li>
+                    <li>Ingrediente 11</li>
+                    <li>Ingrediente 12</li>
+                    <li>Ingrediente 13</li>
+                </ul>
+            </div>
+            <div class="prep-steps">
+                <p class="generic-topic strong-text">How can I prepare?</p>
+                <ol>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla. In hac habitasse platea dictumst. Proin accumsan vitae ex et accumsan. Vestibulum lectus lorem, dapibus euismod leo at, ultrices sagittis libero.</li>
+                    <li>Nullam faucibus leo sed bibendum iaculis. Cras euismod et velit ut vestibulum. Pellentesque sollicitudin, quam nec scelerisque sollicitudin, diam ipsum pulvinar sem, sed euismod libero nunc nec risus.</li>
+                    <li>Etiam scelerisque est in quam tincidunt, et rutrum diam dapibus. Pellentesque id ex lorem. Maecenas blandit orci semper ultrices posuere.</li>
+                    <li>Cras nibh dui, dapibus non vestibulum a, pretium vitae sapien. Pellentesque eleifend commodo ullamcorper.</li>
+                    <li>Etiam enim purus, sagittis sit amet lorem vel, eleifend scelerisque erat. Quisque bibendum sapien ac nisi semper aliquam.</li>
+                </ol>
+            </div>
+        </div>
+        <div class="edit padded-col-sm-12-12">
+            <a href="/editrecipe"><p><img src="static_content/assets/edit.png">Edit or delet this recipe</p></a>
+        </div>
+    </section>
+    <section class="status col-sm-12-12 wrapper-inside">
+        <div class="points col-sm-8-12 col-md-4-12 wrapper-inside">
+            <div class="points-texts padded-col-sm-8-12">
+                <p>This recipe has</p>
+                <p>5 points</p>
+            </div>
+            <div class="heart padded-col-sm-4-12">
+                <form method="post">
+                    <input type="hidden" name="point" value="0">
+                    <img srcset="static_content/assets/heart_off.png 1x, static_content/assets/heart_off@2x.png 2x" src="static_content/assets/heart_off.png">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        <div class="social padded-col-sm-4-12 col-md-2-12 wrapper-inside">
+            <div class="col-sm-6-12">
+                <a href="" target="_blank"><img srcset="static_content/assets/facebook_btn.png 1x, static_content/assets/facebook_btn@2x.png 2x" src="static_content/assets/facebook_btn.png"></a>
+            </div>
+            <div class="col-sm-6-12">
+                <a href="" target="_blank"><img srcset="static_content/assets/twitter_btn.png 1x, static_content/assets/twitter_btn@2x.png 2x" src="static_content/assets/twitter_btn.png"></a>
+            </div>
+        </div>
+        <div class="more col-sm-12-12 col-md-6-12">
+            <a href=""><p>See more from this cook</p></a>
+        </div>
+    </section>
+    <section class="comments padded-col-sm-12-12 padded-col-md-12-12">
+        <p class="generic-topic strong-text">Comments and questions</p>
+        <article>
+            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla.</p>
+            <p class="author"><a href="">nmiguelmoura on 23/10/2016</a> <a class="special-link" href=""><img src="static_content/assets/edit.png">edit</a></p>
+        </article>
+        <article>
+            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla.</p>
+            <p class="author">nmiguelmoura on 23/10/2016</p>
+        </article>
+        <article>
+            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla.</p>
+            <p class="author">nmiguelmoura on 23/10/2016</p>
+        </article>
+        <p class="generic-text strong-text">Post a comment or question</p>
+        <div class="button-container col-sm-12-12 col-md-6-12">
+            <a href="/newcomment" class="button"><p>Post comment</p></a>
+        </div>
+    </section>
+    <section class="padded-col-sm-12-12 col-md-6-12 other-options">
+        <p class="generic-text strong-text">Publish or view your recipes</p>
+        <div class="button-container col-sm-12-12">
+            <a href="/publish" class="button"><p>Publish</p></a>
+        </div>
+        <div class="button-container col-sm-12-12">
+            <a href="/publish" class="button"><p>My kitchen</p></a>
+        </div>
+        <div class="button-container col-sm-12-12">
+            <a href="/myrecipes" class="button"><p>My recipes</p></a>
+        </div>
+    </section>
+</div>
+{% endblock %}

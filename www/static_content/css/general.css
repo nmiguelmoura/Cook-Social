@@ -59,6 +59,13 @@ h2 {
     padding-bottom: 20px;;
 }
 
+.generic-topic {
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
 .strong-text {
     font-weight: 700;
 }
@@ -86,6 +93,11 @@ h2 {
     font-size: 1em;
     width: 100%;
     display: block;
+}
+
+.special-link-inline {
+    color: #EC5800;
+    font-size: 1em;
 }
 
 /*miscellaneous*/
