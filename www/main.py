@@ -13,6 +13,7 @@ import kitchen_handler
 import my_recipes_handler
 import recipe_handler
 import new_comment_handler
+import publish_handler
 
 # Defines de routers.
 app = webapp2.WSGIApplication([
@@ -29,4 +30,5 @@ app = webapp2.WSGIApplication([
     ("/myrecipes", my_recipes_handler.MyRecipesHandler),
     ("/recipe", recipe_handler.RecipeHandler),
     ("/newcomment", new_comment_handler.NewCommentHandler),
+    ("/publish", publish_handler.PublishHandler)
 ], debug=True)

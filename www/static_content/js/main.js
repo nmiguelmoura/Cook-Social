@@ -24,6 +24,9 @@ cookSocial.Main=(function(){
 
         //esta custom class existe apenas se uma determinada pagina necessitar de funcionalidades extra
         this._checkIfCustomClass();
+
+        //launch alerts
+        this._alerts=new cookSocial.Alerts();
     };
 
     return Main;

@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="signup" class="page-content wrapper-special">
+    <section class="padded-col-sm-12-12">
+        <h2>Publish new recipe</h2>
+        <form method="post">
+            <div class="input-labels">
+                <div class="label">
+                    <p>Title</p>
+                    <input type="text" placeholder="Insert recipe title" name="title">
+                    <p class="error_message">{{error_title}}</p>
+                </div>
+                <div class="label">
+                    <p>Preparation time (in minutes)</p>
+                    <input type="number" placeholder="Insert preparation time in minutes" name="prep_time">
+                    <p class="error-message">{{error_prep_time}}</p>
+                </div>
+                <div class="label">
+                    <p>Select picture</p>
+                    <img class="image-selected" src="static_content/assets/image_placeholder_repeated@2x.png">
+                    <div class="file-select-box">
+                        <div class="input-file">
+                            <div class="button-container col-sm-12-12">
+                                <a href="/login" class="button"><p>Select picture</p></a>
+                            </div>
+                            <input type="file" name="foto" class="input-file-btn">
+                        </div>
+                    </div>
+                </div>
+                <div class="label">
+                    <p>N.º of ingredients</p>
+                    <select name="num_ing">
+                        <option value="1">1</option>
+                        <option value="2" selected="selected">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                    </select>
+                    <p class="error-message">{{error_password}}</p>
+                </div>
+                <div class="ingredients">
+                    <div class="label">
+                        <p class="normal">Ingredient 1</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_0">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 2</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_1">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 3</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_2">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 4</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_3">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 5</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_4">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 6</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_5">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 7</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_6">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 8</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_7">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 9</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_8">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 10</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_9">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 11</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_10">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 12</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_11">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 13</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_12">
+                    </div>
+                    <div class="label">
+                        <p class="normal">Ingredient 14</p>
+                        <input type="text" placeholder="Insert ingredient here" name="ing_13">
+                    </div>
+                    <p class="error-ingredients"></p>
+                </div>
+                <div class="label">
+                    <p>N.º of preparation steps</p>
+                    <select name="num_steps">
+                        <option value="1">1</option>
+                        <option value="2" selected="selected">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                    <p class="error-message">{{error_password}}</p>
+                </div>
+                <div class="steps">
+                    <div class="label">
+                        <p class="normal">Step 1</p>
+                        <textarea placeholder="Insert preparation step here" name="step_0"></textarea>
+                    </div>
+                    <div class="label">
+                        <p class="normal">Step 2</p>
+                        <textarea placeholder="Insert preparation step here" name="step_1"></textarea>
+                    </div>
+                    <div class="label">
+                        <p class="normal">Step 3</p>
+                        <textarea placeholder="Insert preparation step here" name="step_2"></textarea>
+                    </div>
+                    <div class="label">
+                        <p class="normal">Step 4</p>
+                        <textarea placeholder="Insert preparation step here" name="step_3"></textarea>
+                    </div>
+                    <div class="label">
+                        <p class="normal">Step 5</p>
+                        <textarea placeholder="Insert preparation step here" name="step_4"></textarea>
+                    </div>
+                    <div class="label">
+                        <p class="normal">Step 6</p>
+                        <textarea placeholder="Insert preparation step here" name="step_5"></textarea>
+                    </div>
+                    <div class="label">
+                        <p class="normal">Step 7</p>
+                        <textarea placeholder="Insert preparation step here" name="step_6"></textarea>
+                    </div>
+                    <p class="error-steps"></p>
+                </div>
+            </div>
+            <div class="button-container col-xs-12-12">
+                <div class="input-submit">
+                    <input type="submit" value="Publish">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="static_content/js/publish/inputFileBtnFunctionality.js"></script>
+<script src="static_content/js/publish/customClass.js"></script>
+{% endblock %}
