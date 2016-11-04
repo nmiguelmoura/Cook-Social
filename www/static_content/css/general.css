@@ -75,10 +75,10 @@ h2 {
 }
 
 .error-message {
-    font-size: 1em;
-    margin-top:-15px;
+    font-size: 0.875em;
     color: red;
     min-height: 10px;
+    font-weight: 400 !important;
 }
 
 .make-ellipsis {
