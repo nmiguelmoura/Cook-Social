@@ -1,12 +1,13 @@
 import handler
-import pre_cookie_handler
-import pre_hash_tools
-import db_query_users
+import prefabs.db_query_users
+import prefabs.cookie_handler
+import prefabs.hash_tools
+
 
 class LoginHandler(handler.Handler):
-    hashs = pre_hash_tools.HashTools()
-    cookies = pre_cookie_handler.CookieHandler()
-    query_users = db_query_users.DBQueryUsers()
+    hashs = prefabs.hash_tools.HashTools()
+    cookies = prefabs.cookie_handler.CookieHandler()
+    query_users = prefabs.db_query_users.DBQueryUsers()
 
     def get(self):
         if self.cookies.get_loginfo_cookie(self):

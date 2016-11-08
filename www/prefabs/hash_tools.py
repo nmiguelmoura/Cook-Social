@@ -1,11 +1,13 @@
-import hmac
 import hashlib
+import hmac
 import random
 import string
-import pre_secret_code
+
+import secret_code
+
 
 class HashTools():
-    SECRET = pre_secret_code.PreSecretCode().get_secret_code()
+    SECRET = secret_code.PreSecretCode().get_secret_code()
 
     def __init__(self):
         pass

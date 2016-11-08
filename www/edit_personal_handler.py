@@ -1,14 +1,15 @@
 import handler
-import pre_cookie_handler
-import db_query_users
-import pre_signup_validation
-import pre_hash_tools
+import prefabs.db_query_users
+import prefabs.cookie_handler
+import prefabs.hash_tools
+import prefabs.signup_validation
+
 
 class EditPersonalHandler(handler.Handler):
-    validation = pre_signup_validation.SignupValidation()
-    cookies = pre_cookie_handler.CookieHandler()
-    query_users = db_query_users.DBQueryUsers()
-    hashs = pre_hash_tools.HashTools()
+    validation = prefabs.signup_validation.SignupValidation()
+    cookies = prefabs.cookie_handler.CookieHandler()
+    query_users = prefabs.db_query_users.DBQueryUsers()
+    hashs = prefabs.hash_tools.HashTools()
 
     def get(self):
         log_info = self.cookies.get_loginfo_cookie(self)

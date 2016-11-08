@@ -1,10 +1,10 @@
-import pre_hash_tools
+import hash_tools
 
 class CookieHandler:
     hashs = None
 
     def __init__(self):
-        self.hashs = pre_hash_tools.HashTools()
+        self.hashs = hash_tools.HashTools()
         pass
 
     def get_loginfo_cookie(self, handler):

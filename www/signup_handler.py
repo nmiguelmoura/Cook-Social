@@ -1,15 +1,16 @@
 import handler
-import pre_signup_validation
-import pre_hash_tools
 import db_model_users
-import db_query_users
-import pre_cookie_handler
+import prefabs.db_query_users
+import prefabs.cookie_handler
+import prefabs.hash_tools
+import prefabs.signup_validation
+
 
 class SignupHandler(handler.Handler):
-    validation = pre_signup_validation.SignupValidation()
-    hashs = pre_hash_tools.HashTools()
-    query_users = db_query_users.DBQueryUsers()
-    cookies = pre_cookie_handler.CookieHandler()
+    validation = prefabs.signup_validation.SignupValidation()
+    hashs = prefabs.hash_tools.HashTools()
+    query_users = prefabs.db_query_users.DBQueryUsers()
+    cookies = prefabs.cookie_handler.CookieHandler()
 
     def get(self):
         if self.cookies.get_loginfo_cookie(self):
@@ -43,7 +44,7 @@ class SignupHandler(handler.Handler):
 
     def store_data(self, username, email, password):
         hashed_password = self.hashs.make_secure_password(username, password)
-        users = db_model_users.UsersDBModel(username=username, email=email, password=hashed_password)
+        users = db_model_users.UsersDBModel(username=username, email=email, password=hashed_password, pointed=[''], comments=[''])
         users.put()
         user_id = str(users.key().id())
         self.set_cookie(user_id)

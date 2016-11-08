@@ -1,16 +1,18 @@
-import handler
-import pre_signup_validation
-import pre_hash_tools
-import db_query_users
 import random
 import string
-import pre_send_message
+
+import handler
+import prefabs.db_query_users
+import prefabs.hash_tools
+import prefabs.send_message
+import prefabs.signup_validation
+
 
 class ForgotPasswordHandler(handler.Handler):
-    validation = pre_signup_validation.SignupValidation()
-    query_users = db_query_users.DBQueryUsers()
-    hashs = pre_hash_tools.HashTools()
-    send_message = pre_send_message.SendMessage()
+    validation = prefabs.signup_validation.SignupValidation()
+    query_users = prefabs.db_query_users.DBQueryUsers()
+    hashs = prefabs.hash_tools.HashTools()
+    send_message = prefabs.send_message.SendMessage()
 
     def get(self):
         self.render("forgot_password.html")

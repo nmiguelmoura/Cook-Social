@@ -18,11 +18,3 @@ class DBQueryUsers:
         user = db.GqlQuery("SELECT * FROM UsersDBModel WHERE email='%s'" % email)
         for u in user:
             return u
-
-    # def get_user_id(self, username):
-    #     user = db.GqlQuery("SELECT * FROM UsersDBModel WHERE username='%s'" % username)
-    #     for u in user:
-    #         print "####"
-    #         print u
-    #         print "####"
-    #         return u

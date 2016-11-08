@@ -1,9 +1,11 @@
-import pre_secret_code
 import smtplib
 from email.mime.text import MIMEText
 
+import secret_code
+
+
 class SendMessage:
-    secret_code = pre_secret_code.PreSecretCode()
+    secret_code = secret_code.PreSecretCode()
     loginData = secret_code.get_mailgun_login()
 
     def __init__(self):
@@ -14,6 +16,13 @@ class SendMessage:
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCook@SocialCook.com"
         msg['To'] = sendTo
+        self.send_mail(msg)
+
+    def send_contact(self, email, message):
+        msg = MIMEText('Hi Nuno, "%s" sent you the following message: "%s"' % (email, message))
+        msg['Subject'] = "Hello"
+        msg['From'] = "SocialCook@SocialCook.com"
+        msg['To'] = "nmiguelmoura@gmail.com"
         self.send_mail(msg)
 
     def send_mail(self, msg):

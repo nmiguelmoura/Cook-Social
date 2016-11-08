@@ -15,7 +15,8 @@ import recipe_handler
 import new_comment_handler
 import publish_handler
 import logout_handler
-import pre_send_message
+import message_to_user_handler
+import image_recipe_handler
 
 # Defines de routers.
 app = webapp2.WSGIApplication([
@@ -33,5 +34,7 @@ app = webapp2.WSGIApplication([
     ("/recipe", recipe_handler.RecipeHandler),
     ("/newcomment", new_comment_handler.NewCommentHandler),
     ("/publish", publish_handler.PublishHandler),
-    ("/logout", logout_handler.LogoutHandler)
+    ("/logout", logout_handler.LogoutHandler),
+    ("/messagetouser", message_to_user_handler.MessageToUserHandler),
+    ("/imagerecipe", image_recipe_handler.ImageRecipeHandler)
 ], debug=True)
