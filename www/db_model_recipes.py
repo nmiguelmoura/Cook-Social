@@ -8,7 +8,6 @@ class RecipesDBModel(db.Model):
     title = db.StringProperty(required=True)
     prep_time = db.IntegerProperty(required=True)
     points = db.IntegerProperty(required=True)
-    comments = db.ListProperty(str)
     ingredients = db.ListProperty(str, required=True)
     steps = db.ListProperty(str, required=True)
     image = db.BlobProperty()

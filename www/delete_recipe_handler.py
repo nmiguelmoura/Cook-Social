@@ -10,9 +10,6 @@ class DeleteRecipeHandler(handler.Handler):
         user_id = self.get_user()
         recipe_id = self.request.get("id")
 
-        print user_id
-        print recipe_id
-
         if recipe_id:
             recipe = self.query_recipes.search_recipes_by_id(recipe_id)
 

@@ -7,18 +7,18 @@
 {% block content %}
 <div id="new-comment" class="page-content wrapper-special">
     <section class="padded-col-sm-12-12">
-        <h2>Comment on Arroz de pato</h2>
+        <h2>Comment on {{title}}</h2>
         <form method="post">
             <div class="input-labels">
                 <div class="label">
                     <p>Comment</p>
-                    <textarea title="Comment" placeholder="Type in your comment or question"></textarea>
+                    <textarea title="Comment" placeholder="Type in your comment or question" name="comment"></textarea>
                     <p class="error-message">{{error_comment}}</p>
                 </div>
             </div>
             <div class="button-container col-sm-12-12">
                 <div class="input-submit">
-                    <input type="submit" value="Save changes">
+                    <input type="submit" value="Post comment">
                 </div>
             </div>
         </form>

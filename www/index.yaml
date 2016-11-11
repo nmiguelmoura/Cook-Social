@@ -10,9 +10,9 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
-- kind: RecipesDBModel
+- kind: CommentsDBModel
   properties:
-  - name: user
+  - name: recipe_id
   - name: created
     direction: desc
 

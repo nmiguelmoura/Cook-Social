@@ -34,7 +34,7 @@ class SignupHandler(handler.Handler):
             if username_available:
                 self.store_data(username, email, password)
             else:
-                message="This username already exists. Please choose another one."
+                message = "This username already exists. Please choose another one."
                 self.render('sign_up.html', username=username, email=email, error_username=message)
         else:
             self.render('sign_up.html', username=username, email=email, error_username=username_validation["info"], error_email=email_validation["info"], error_password=password_validation["info"])
@@ -49,7 +49,7 @@ class SignupHandler(handler.Handler):
         users.put()
         user_id = str(users.key().id())
         self.set_cookie(user_id)
-        time.sleep(0.1)
+        time.sleep(0.2)
         self.redirect("/kitchen")
 
     def set_cookie(self, user_id):

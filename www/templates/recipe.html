@@ -76,18 +76,15 @@
     </section>
     <section class="comments padded-col-sm-12-12 padded-col-md-12-12">
         <p class="generic-topic strong-text">Comments and questions</p>
+        {% for comment in comments %}
         <article>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla.</p>
-            <p class="author"><a href="">nmiguelmoura on 23/10/2016</a> <a class="special-link" href=""><img src="static_content/assets/edit.png">edit</a></p>
+            <p class="comment">{{comment.comment}}</p>
+            <p class="author"><a href="/myrecipes?id={{comment.user_id}}">{{comment.username}} on {{comment.created}}</a>
+                {% if user_id == comment.user_id%}
+                <a class="special-link" href="/editcomment?id={{comment.key().id()}}"><img src="static_content/assets/edit.png">edit</a></p>
+                {% endif %}
         </article>
-        <article>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla.</p>
-            <p class="author">nmiguelmoura on 23/10/2016</p>
-        </article>
-        <article>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec commodo justo. Sed tristique libero nec tortor placerat imperdiet. Mauris ac faucibus nulla.</p>
-            <p class="author">nmiguelmoura on 23/10/2016</p>
-        </article>
+        {% endfor %}
         <p class="generic-text strong-text">Post a comment or question</p>
         <div class="button-container col-sm-12-12 col-md-6-12">
             <a href="/newcomment?id={{id}}" class="button"><p>Post comment</p></a>

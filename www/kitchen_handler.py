@@ -12,9 +12,13 @@ class KitchenHandler(handler.Handler):
         user_id = self.cookies.get_loginfo_cookie(self)
 
         if user_id:
-            username = self.query_users.search_user_by_id(user_id).username
-            limit = 10
-            recipes = self.query_recipes.search_new_recipes(limit)
-            self.render("kitchen.html", user_id=user_id, username=username, recipes=recipes)
+            user = self.query_users.search_user_by_id(user_id)
+            if user:
+                username = user.username
+                limit = 10
+                recipes = self.query_recipes.search_new_recipes(limit)
+                self.render("kitchen.html", user_id=user_id, username=username, recipes=recipes)
+            else:
+                self.redirect("/login")
         else:
             self.redirect("/login")

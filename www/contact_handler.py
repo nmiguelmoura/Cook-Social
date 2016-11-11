@@ -12,7 +12,7 @@ class ContactHandler(handler.Handler):
 
     def post(self):
         email = self.request.get("email")
-        message = self.request.get("message")
+        message = self.request.get("message").encode("UTF-8")
         error_comment = "Empty message. Please send us your questions or sugestions." if message == "" else ""
         email_validation = self.validation.email_verify(email)
 
