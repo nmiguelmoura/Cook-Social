@@ -14,9 +14,11 @@ import my_recipes_handler
 import recipe_handler
 import new_comment_handler
 import publish_handler
+import edit_recipe_handler
 import logout_handler
 import message_to_user_handler
 import image_recipe_handler
+import delete_recipe_handler
 
 # Defines de routers.
 app = webapp2.WSGIApplication([
@@ -34,6 +36,8 @@ app = webapp2.WSGIApplication([
     ("/recipe", recipe_handler.RecipeHandler),
     ("/newcomment", new_comment_handler.NewCommentHandler),
     ("/publish", publish_handler.PublishHandler),
+    ("/editrecipe", edit_recipe_handler.EditRecipeHandler),
+    ("/deleterecipe", delete_recipe_handler.DeleteRecipeHandler),
     ("/logout", logout_handler.LogoutHandler),
     ("/messagetouser", message_to_user_handler.MessageToUserHandler),
     ("/imagerecipe", image_recipe_handler.ImageRecipeHandler)

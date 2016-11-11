@@ -4,6 +4,7 @@ import prefabs.db_query_users
 import prefabs.cookie_handler
 import prefabs.hash_tools
 import prefabs.signup_validation
+import time
 
 
 class SignupHandler(handler.Handler):
@@ -48,7 +49,7 @@ class SignupHandler(handler.Handler):
         users.put()
         user_id = str(users.key().id())
         self.set_cookie(user_id)
-
+        time.sleep(0.1)
         self.redirect("/kitchen")
 
     def set_cookie(self, user_id):

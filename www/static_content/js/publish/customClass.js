@@ -113,12 +113,10 @@ cookSocial.CustomClass = (function () {
         var ingredients = this._getInputDivs('ingredients', 'input');
         this._ingredients = ingredients.obj;
         this._ingredientsMax = ingredients.maxLength;
-        this._setInputNumber(this._ingredients, this._ingredientsMax, this.INITIAL_VALUE);
 
         var steps = this._getInputDivs('steps', 'textArea');
         this._steps = steps.obj;
         this._stepsMax = steps.maxLength;
-        this._setInputNumber(this._steps, this._stepsMax, this.INITIAL_VALUE);
     };
 
     CustomClass.prototype._init = function () {

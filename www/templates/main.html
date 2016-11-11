@@ -30,66 +30,27 @@
     <section class="col-sm-12-12 padded-col-md-12-12">
         <h2>What's new?</h2>
         <div class="recipes-container-rectangles">
-            <a href="">
+            {% for recipe in recipes %}
+            <a href="/recipe?id={{recipe.key().id()}}">
                 <article class="wrapper-inside recipe-rectangle">
                     <div class="col-sm-3-12 recipe-image">
-                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
+                        {% if recipe.image %}
+                        <img src="/imagerecipe?img_id={{recipe.key().id()}}" alt="{{recipe.title}}">
+                        {% else %}
+                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" alt="recipe-image">
+                        {% endif %}
                     </div>
                     <div class="col-sm-7-12 recipe-left-side">
-                        <h3 class="make-ellipsis">Arroz de pato</h3>
-                        <p class="author make-ellipsis">nmiguelmoura</p>
-                        <p class="prep-time">Preparation time: 5min</p>
+                        <h3 class="make-ellipsis">{{recipe.title}}</h3>
+                        <p class="author make-ellipsis">{{recipe.user}}</p>
+                        <p class="prep-time">Preparation time: {{recipe.prep_time}} min</p>
                     </div>
                     <div class="col-sm-2-12 recipe-right-side">
-                        <p>5<br><span class="small-text">pts</span></p>
+                        <p>{{recipe.points}}<br><span class="small-text">pts</span></p>
                     </div>
                 </article>
             </a>
-            <a href="">
-                <article class="wrapper-inside recipe-rectangle">
-                    <div class="col-sm-3-12 recipe-image">
-                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
-                    </div>
-                    <div class="col-sm-7-12 recipe-left-side">
-                        <h3 class="make-ellipsis">Arroz de pato</h3>
-                        <p class="author make-ellipsis">nmiguelmoura</p>
-                        <p class="prep-time">Preparation time: 5min</p>
-                    </div>
-                    <div class="col-sm-2-12 recipe-right-side">
-                        <p>5<br><span class="small-text">pts</span></p>
-                    </div>
-                </article>
-            </a>
-            <a href="">
-                <article class="wrapper-inside recipe-rectangle">
-                    <div class="col-sm-3-12 recipe-image">
-                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
-                    </div>
-                    <div class="col-sm-7-12 recipe-left-side">
-                        <h3 class="make-ellipsis">Arroz de pato</h3>
-                        <p class="author make-ellipsis">nmiguelmoura</p>
-                        <p class="prep-time">Preparation time: 5min</p>
-                    </div>
-                    <div class="col-sm-2-12 recipe-right-side">
-                        <p>5<br><span class="small-text">pts</span></p>
-                    </div>
-                </article>
-            </a>
-            <a href="">
-                <article class="wrapper-inside recipe-rectangle">
-                    <div class="col-sm-3-12 recipe-image">
-                        <img srcset="static_content/assets/image_placeholder.png 1x, static_content/assets/image_placeholder@2x.png 2x" src="static_content/assets/image_placeholder.png" target="recipe-image">
-                    </div>
-                    <div class="col-sm-7-12 recipe-left-side">
-                        <h3 class="make-ellipsis">Arroz de pato</h3>
-                        <p class="author make-ellipsis">nmiguelmoura</p>
-                        <p class="prep-time">Preparation time: 5min</p>
-                    </div>
-                    <div class="col-sm-2-12 recipe-right-side">
-                        <p>5<br><span class="small-text">pts</span></p>
-                    </div>
-                </article>
-            </a>
+            {% endfor %}
         </div>
     </section>
 </div>

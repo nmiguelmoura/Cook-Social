@@ -4,6 +4,7 @@ from google.appengine.api import images
 
 class RecipesDBModel(db.Model):
     user_id = db.StringProperty(required=True)
+    user = db.StringProperty(required=True)
     title = db.StringProperty(required=True)
     prep_time = db.IntegerProperty(required=True)
     points = db.IntegerProperty(required=True)

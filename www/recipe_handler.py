@@ -22,7 +22,7 @@ class RecipeHandler(handler.Handler):
     def get_values(self):
         id = self.request.get("id")
         recipe = self.query_recipes.search_recipes_by_id(id)
-        author = self.query_users.search_user_by_id(recipe.user_id).username
+        author = recipe.user
         user_id = self.cookies.get_loginfo_cookie(self)
 
         user = None

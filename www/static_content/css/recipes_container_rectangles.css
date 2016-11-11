@@ -10,7 +10,8 @@
     /**/
     height: 60px;
 
-    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom:5px solid white;
 }
 
 .recipe-image {
@@ -34,9 +35,9 @@
 }
 
 .recipe-left-side .author {
-    font-size: 1em;
+    font-size: 0.875em;
     color: #979797;
-    padding-top:5px;
+    padding-top:1px;
 }
 
 .recipe-left-side .prep-time {
@@ -103,6 +104,8 @@
     }
 
     .recipe-rectangle {
+        -webkit-column-break-inside: avoid;
+        column-break-inside: avoid;
         height: 96px;
     }
 
@@ -115,6 +118,7 @@
     }
 
     .recipe-left-side .author {
+        font-size: 1em;
         padding-top: 7px;
     }
 
