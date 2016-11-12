@@ -1,16 +1,17 @@
 import handler
 
 class MessageToUserHandler(handler.Handler):
+    """Class that handles error message page."""
     def get(self):
+        # Get type of message to display
         type = self.request.get("type")
-        print type
+
+        # Create variables to store title and message and change them according to type passed in.
+        title = None
         message = None
         if type == "contact":
             title = "Question / sugestion sent"
             message = " Your questions or sugestions have been sent. We will answer you as soon as possible. Thank you."
-        elif type == "comment":
-            title = "Comment saved"
-            message = "Your comment has been saved. Thanks for using Social Cook!"
         elif type == "comment_permission_error":
             title = "Permission error"
             message = "You are not allowed to edit this comment. You can only edit your own comments."
@@ -24,4 +25,5 @@ class MessageToUserHandler(handler.Handler):
             title = "Page not found"
             message = "The page you requested was not found!"
 
-        self.render("message_to_user.html", message=message)
+        # Render page with corresponding title and message.
+        self.render("message_to_user.html", title=title, message=message)

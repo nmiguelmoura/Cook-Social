@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'www/static_content/css/styles.min.css': ['www/static_content/css/reset.css','www/static_content/css/grid.css','www/static_content/css/general.css','www/static_content/css/header.css','www/static_content/css/nav.css','www/static_content/css/footer.css']
+          'www/static_content/css/styles.min.css': ['www/static_content/css/reset.css','www/static_content/css/grid.css','www/static_content/css/general.css','www/static_content/css/header.css','www/static_content/css/nav.css','www/static_content/css/footer.css','www/static_content/css/alert_custom.css','www/static_content/css/buttons.css','www/static_content/css/forms.css','www/static_content/css/recipes_container_rectangles.css','www/static_content/css/other_options.css','www/static_content/css/status.css','www/static_content/css/comments.css','www/static_content/css/p_main_style.css','www/static_content/css/p_recipe.css']
         }
       }
     },
@@ -18,7 +18,8 @@ module.exports = function(grunt) {
       },
       build:{
         files:{
-          "www/static_content/js/builds/engine.min.js":["www/static_content/js/alerts.js","www/static_content/js/popup_bar.js","www/static_content/js/main.js"]
+          "www/static_content/js/builds/engine.min.js":["www/static_content/js/alerts.js","www/static_content/js/popup_bar.js","www/static_content/js/main.js"],
+          "www/static_content/js/builds/publish/publish.min.js":["www/static_content/js/publish/inputFileBtnFunctionality.js","www/static_content/js/publish/customClass.js"]
         }
       }
     },

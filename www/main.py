@@ -21,7 +21,7 @@ import image_recipe_handler
 import delete_recipe_handler
 import delete_comment_handler
 
-# Defines de routers.
+# Defines the routers.
 app = webapp2.WSGIApplication([
     ("/", main_handler.MainHandler),
     ("/login", login_handler.LoginHandler),
