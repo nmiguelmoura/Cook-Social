@@ -11,21 +11,24 @@ cookSocial.Main = (function () {
 
     Main.prototype._checkIfCustomClass = function () {
         if (cookSocial.CustomClass) {
+            // If custom class exists, instantiate it.
             this._customClass = new cookSocial.CustomClass();
         }
     };
 
     Main.prototype._setUpPopupBar = function () {
+        // Instantiate popup bar manager.
         this._popubBar = new cookSocial.PopupBar();
     };
 
     Main.prototype._init = function () {
+        // Setup popup bar.
         this._setUpPopupBar();
 
-        //esta custom class existe apenas se uma determinada pagina necessitar de funcionalidades extra
+        // This class exists only if extra functionality is required in a given page.
         this._checkIfCustomClass();
 
-        //launch alerts
+        // Launch customized alerts.
         this._alerts = new cookSocial.Alerts();
     };
 
