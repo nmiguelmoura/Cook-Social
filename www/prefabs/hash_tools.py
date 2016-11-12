@@ -3,14 +3,14 @@ import hmac
 import random
 import string
 
-import secret_code
+import secret
 
 
 class HashTools():
     """Class that hashes passwords and performs cookie and password verification."""
 
     # Instantiate PreSecretCode class.
-    SECRET = secret_code.PreSecretCode().get_secret_code()
+    SECRET = secret.SecretCode().get_secret_code()
 
     def __init__(self):
         pass

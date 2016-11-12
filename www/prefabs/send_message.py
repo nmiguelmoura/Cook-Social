@@ -1,14 +1,14 @@
 import smtplib
 from email.mime.text import MIMEText
 
-import secret_code
+import secret
 
 
 class SendMessage:
     """Class that allows system to send emails. This code is similar to the one given on Mailgun examples page (http://www.mailgun.com/)."""
 
     # Instantiate PreSecretCode class.
-    secret_code = secret_code.PreSecretCode()
+    secret_code = secret.SecretCode()
 
     # Get smtp login data.
     loginData = secret_code.get_mailgun_login()
