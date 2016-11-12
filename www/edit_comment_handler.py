@@ -22,7 +22,7 @@ class EditCommentHandler(handler.Handler):
 
     def render_get(self, comment):
         # Render the edit_comment page.
-        self.render("edit_comment.html", comment=comment.comment, id=self.get_comment_id())
+        self.render("edit_comment.html", comment=comment.comment, recipe_id=comment.recipe_id, id=self.get_comment_id())
 
     def render_post(self, comment):
         # Get edited comment posted by user.
@@ -37,7 +37,7 @@ class EditCommentHandler(handler.Handler):
             self.redirect("/recipe?id=%s" % comment.recipe_id)
         else:
             # If comment field is empty, render page with error message.
-            self.render("edit_comment.html", id=self.get_comment_id(), error_comment="The comment field is empty. Please insert a valid comment.")
+            self.render("edit_comment.html", id=self.get_comment_id(), recipe_id=comment.recipe_id, error_comment="The comment field is empty. Please insert a valid comment.")
 
     def validation(self, t):
         # Check if comment_id exists and comment author id matches user id logged in.
