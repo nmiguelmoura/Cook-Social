@@ -6,7 +6,7 @@ class SecretCode:
 
     def get_secret_code(self):
         # Secret code to hash
-        return "AAAAAA"
+        return "AAAAAAAA"
 
     def get_mailgun_login(self):
         # Return mailgun login data.

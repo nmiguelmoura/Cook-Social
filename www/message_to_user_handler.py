@@ -6,21 +6,25 @@ class MessageToUserHandler(handler.Handler):
         # Get type of message to display
         type = self.request.get("type")
 
-        # Create variables to store title and message and change them according to type passed in.
+        # Create variables to store title and message and
+        # change them according to type passed in.
         title = None
         message = None
         if type == "contact":
-            title = "Question / sugestion sent"
-            message = " Your questions or sugestions have been sent. We will answer you as soon as possible. Thank you."
+            title = "Question / suggestion sent"
+            message = " Your questions or suggestions have been sent. " \
+                      "We will answer you as soon as possible. Thank you."
         elif type == "comment_permission_error":
             title = "Permission error"
-            message = "You are not allowed to edit this comment. You can only edit your own comments."
+            message = "You are not allowed to edit this comment. " \
+                      "You can only edit your own comments."
         elif type == "recipe_not_found":
             title = "Recipe not found"
             message = "The recipe you specified hasn't been found!"
         elif type == "permission_error":
             title = "Permission error"
-            message = "You are not allowed to edit this recipe. You can only edit your own recipes."
+            message = "You are not allowed to edit this recipe. " \
+                      "You can only edit your own recipes."
         else:
             title = "Page not found"
             message = "The page you requested was not found!"

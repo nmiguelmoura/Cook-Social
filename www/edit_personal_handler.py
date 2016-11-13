@@ -42,19 +42,24 @@ class EditPersonalHandler(handler.Handler):
         # Check if new email is valid.
         email_validation = self.validation.email_verify(email)
 
-        # Object to store password validation data. This allows to have a response status ok in cases where user didn't changed password.
+        # Object to store password validation data. This allows to have a
+        # response status ok in cases where user didn't changed password.
         password_validation = {"response": "ok", "info": ""}
 
         if password:
             # If password was changed, check if its valid.
-            password_validation = self.validation.test_password(password, verify)
+            password_validation = self.validation.test_password(password,
+                                                                verify)
 
         if email_validation["response"] and password_validation["response"]:
             # If email is valid and password is valid, store the new data.
             self.store_data(user_data, email, password)
         else:
-            # If email or password isn't valid, render page with corresponding error messages.
-            self.render("edit_personal_data.html", email=email, error_email=email_validation["info"], error_password=password_validation["info"])
+            # If email or password isn't valid, render page with corresponding
+            # error messages.
+            self.render("edit_personal_data.html", email=email,
+                        error_email=email_validation["info"],
+                        error_password=password_validation["info"])
 
     def store_data(self, user_data, email, password):
         if email:
@@ -63,7 +68,8 @@ class EditPersonalHandler(handler.Handler):
 
         if password:
             # If password was chenged, hash it and store.
-            user_data.password = self.hashs.make_secure_password(user_data.username, password)
+            user_data.password = self.hashs.make_secure_password(
+                user_data.username, password)
 
         # Put new user data in db.
         user_data.put()

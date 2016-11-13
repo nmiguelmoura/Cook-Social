@@ -36,10 +36,11 @@ class SignupHandler(handler.Handler):
         # Validate email address.
         email_validation = self.validation.email_verify(email)
 
-        #Validate password.
+        # Validate password.
         password_validation = self.validation.test_password(password, verify)
 
-        if username_validation["response"] and email_validation["response"] and password_validation["response"]:
+        if username_validation["response"] and email_validation["response"] and \
+                password_validation["response"]:
             # Run if posted data is all valid.
 
             # Check if username is available.
@@ -51,13 +52,18 @@ class SignupHandler(handler.Handler):
             else:
                 # If username is unavailable, render page with error message.
                 message = "This username already exists. Please choose another one."
-                self.render('sign_up.html', username=username, email=email, error_username=message)
+                self.render('sign_up.html', username=username, email=email,
+                            error_username=message)
         else:
             # If posted data is invalid, render page with corresponding error messages.
-            self.render('sign_up.html', username=username, email=email, error_username=username_validation["info"], error_email=email_validation["info"], error_password=password_validation["info"])
+            self.render('sign_up.html', username=username, email=email,
+                        error_username=username_validation["info"],
+                        error_email=email_validation["info"],
+                        error_password=password_validation["info"])
 
     def check_username_availability(self, username):
-        # Query users to check if username chosen is already in use and return accordingly.
+        # Query users to check if username chosen is already in use and
+        # return accordingly.
         user = self.query_users.search_user(username)
         return False if user else True
 
@@ -68,7 +74,9 @@ class SignupHandler(handler.Handler):
         hashed_password = self.hashs.make_secure_password(username, password)
 
         # Create new user entity.
-        users = db_model_users.UsersDBModel(username=username, email=email, password=hashed_password, pointed=[''], comments=[''])
+        users = db_model_users.UsersDBModel(username=username, email=email,
+                                            password=hashed_password,
+                                            pointed=[''], comments=[''])
         users.put()
 
         # Get user id.
@@ -77,7 +85,8 @@ class SignupHandler(handler.Handler):
         # Store cookie with id data.
         self.set_cookie(user_id)
 
-        # Delay 0.2 sec before redirecting to next page to avoid errors reading from db.
+        # Delay 0.2 sec before redirecting to next page to avoid errors
+        # reading from db.
         time.sleep(0.2)
 
         # REdirect to kitchen page.

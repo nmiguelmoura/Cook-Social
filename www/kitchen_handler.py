@@ -28,7 +28,8 @@ class KitchenHandler(handler.Handler):
                 recipes = self.query_recipes.search_new_recipes(limit)
 
                 # Render page.
-                self.render("kitchen.html", user_id=user_id, username=username, recipes=recipes)
+                self.render("kitchen.html", user_id=user_id, username=username,
+                            recipes=recipes)
             else:
                 # If user doesn't exist in db, redirect to login page.
                 self.redirect("/login")

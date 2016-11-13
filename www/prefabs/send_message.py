@@ -5,7 +5,8 @@ import secret
 
 
 class SendMessage:
-    """Class that allows system to send emails. This code is similar to the one given on Mailgun examples page (http://www.mailgun.com/)."""
+    """Class that allows system to send emails. This code is similar to the one
+    given on Mailgun examples page (http://www.mailgun.com/)."""
 
     # Instantiate PreSecretCode class.
     secret_code = secret.SecretCode()
@@ -18,7 +19,8 @@ class SendMessage:
 
     def send_password(self, sendTo, password):
         # Compose message if user requests new password
-        msg = MIMEText('Password recovery. Your new password to Social Cook is: "%s"' % password)
+        msg = MIMEText(
+            'Password recovery. Your new password to Social Cook is: "%s"' % password)
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCook@SocialCook.com"
         msg['To'] = sendTo
@@ -26,7 +28,8 @@ class SendMessage:
 
     def send_contact(self, email, message):
         # Compose message if user sends message to portal
-        msg = MIMEText('Hi Nuno, "%s" sent you the following message: "%s"' % (email, message))
+        msg = MIMEText('Hi Nuno, "%s" sent you the following message: "%s"' % (
+        email, message), "plain", "utf-8")
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCook@SocialCook.com"
         msg['To'] = "nmiguelmoura@gmail.com"

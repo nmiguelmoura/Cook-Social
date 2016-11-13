@@ -4,7 +4,8 @@ import handler
 
 
 class ImageRecipeHandler(handler.Handler):
-    """Class to be called from a page when need to display a recipe image stored in db."""
+    """Class to be called from a page when need to display a recipe image
+    stored in db."""
 
     def get(self):
         # Get image key.
@@ -23,6 +24,7 @@ class ImageRecipeHandler(handler.Handler):
 
     def search_recipe(self, id):
         # Return recipe entity with given id.
-        recipe = db.GqlQuery("SELECT * FROM RecipesDBModel WHERE __key__ = KEY('RecipesDBModel', " + id + ")")
+        recipe = db.GqlQuery(
+            "SELECT * FROM RecipesDBModel WHERE __key__ = KEY('RecipesDBModel', " + id + ")")
         for r in recipe:
             return r

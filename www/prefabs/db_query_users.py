@@ -1,7 +1,8 @@
 from google.appengine.ext import db
 
 class DBQueryUsers:
-    """Class that performs queries in UsersDBModel. Allows to search for users based on user id, username and email."""
+    """Class that performs queries in UsersDBModel. Allows to search for
+    users based on user id, username and email."""
 
     def __init__(self):
         pass

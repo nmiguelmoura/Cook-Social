@@ -1,7 +1,8 @@
 from google.appengine.ext import db
 
 class DBQueryRecipes:
-    """Class that performs queries in RecipesDBModel. Allows to search for recipes based on recipe id, recipe user, top voted and new publications."""
+    """Class that performs queries in RecipesDBModel. Allows to search for
+    recipes based on recipe id, recipe user, top voted and new publications."""
 
     def __init__(self):
         pass

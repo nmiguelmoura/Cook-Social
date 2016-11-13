@@ -19,3 +19,13 @@ Update www/prefabs/secret.py with a secret pass and smtp login info.
 ##Where to get
 [Social Cook](http://social-cook.appspot.com/)
 
+##Project install on local development server
+- Create a new Cloud Platform Console project or retrieve the project ID of an existing project from the Google Cloud Platform Console.
+- Install the gcloud tool and initialize the Google Cloud SDK. Follow Google Cloud Quickstart Guide for Python App Engine Standard Environment to install Google Cloud in your system. [Link](https://cloud.google.com/appengine/docs/python/quickstart)
+- Download the project to your system.
+- Through terminal or command line tools, navigate to /www project folder.
+- Run command `dev_appserver.py app.yaml`.
+- On your brwoser open `localhost:8080`.
+
+
+

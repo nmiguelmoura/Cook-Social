@@ -17,7 +17,8 @@ class ContactHandler(handler.Handler):
         message = self.request.get("message")
 
         # Generate error message if comment box is empty.
-        error_comment = "Empty message. Please send us your questions or sugestions." if message == "" else ""
+        error_comment = "Empty message. Please send us your" \
+                        " questions or suggestions." if message == "" else ""
 
         # Validate email.
         email_validation = self.validation.email_verify(email)
@@ -29,6 +30,9 @@ class ContactHandler(handler.Handler):
             # After email sent, redirect to page with message to user.
             self.redirect("/messagetouser?type=contact")
         else:
-            # If email is not valid or there is no message, render page with error messages.
-            self.render("contact.html", email=email, message=message, error_email=email_validation["info"], error_comment=error_comment)
+            # If email is not valid or there is no message,
+            # render page with error messages.
+            self.render("contact.html", email=email, message=message,
+                        error_email=email_validation["info"],
+                        error_comment=error_comment)
 

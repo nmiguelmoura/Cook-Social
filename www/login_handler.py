@@ -30,15 +30,20 @@ class LoginHandler(handler.Handler):
         if existing_user:
             # If user exists in db, verify password.
             if self.verify_password(existing_user, password):
-                # If password is correct, store cookie in system and redirect to kitchen page.
-                self.cookies.set_loginfo_cookie(self, str(existing_user.key().id()))
+                # If password is correct, store cookie in system and redirect
+                # to kitchen page.
+                self.cookies.set_loginfo_cookie(self,
+                                                str(existing_user.key().id()))
                 self.redirect("/kitchen")
                 return
 
-        # Id user does not exist or password doesn't match, render page with error message.
-        self.render('login.html', username=username, error_message="Invalid username or password.")
-
+        # Id user does not exist or password doesn't match, render page with
+        # error message.
+        self.render('login.html', username=username,
+                    error_message="Invalid username or password.")
 
     def verify_password(self, existing_user, given_password):
         # Compare password posted and stored and return result.
-        return self.hashs.check_secure_password(existing_user.username, given_password, existing_user.password)
+        return self.hashs.check_secure_password(existing_user.username,
+                                                given_password,
+                                                existing_user.password)

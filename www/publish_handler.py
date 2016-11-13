@@ -48,12 +48,14 @@ class PublishHandler(handler.Handler):
             # Create a list to store ingredients.
             ingredients = []
 
-            # Loop through each ingredient box available and previously selected by user.
+            # Loop through each ingredient box available and previously
+            # selected by user.
             for i in range(0, num_ingredients):
                 # Get text posted by user.
                 ing = self.request.get("ing_%s" % i)
                 if ing != "":
-                    # If field is not empty, store ingredient in ingredients list.
+                    # If field is not empty, store ingredient in
+                    # ingredients list.
                     ingredients.append(ing)
 
             # Check the number of steps selected by user.
@@ -62,7 +64,8 @@ class PublishHandler(handler.Handler):
             # Create a list to store steps.
             steps = []
 
-            # Loop through each step box available and previously selected by user.
+            # Loop through each step box available and previously
+            # selected by user.
             for i in range(0, num_steps):
                 # Get text posted by user.
                 step = self.request.get("step_%s" % i)
@@ -75,28 +78,49 @@ class PublishHandler(handler.Handler):
 
             # Check if data posted is valid.
             title_validation = self.recipe_validation.validate_title(title)
-            prep_time_validation = self.recipe_validation.validate_prep_time(prep_time)
-            ingredients_validation = self.recipe_validation.list_length_validation(ingredients, "ingredient")
-            steps_validation = self.recipe_validation.list_length_validation(steps, "step")
+            prep_time_validation = self.recipe_validation.validate_prep_time(
+                prep_time)
+            ingredients_validation = self.recipe_validation.list_length_validation(
+                ingredients, "ingredient")
+            steps_validation = self.recipe_validation.list_length_validation(
+                steps, "step")
 
-            if title_validation["response"] and prep_time_validation["response"] and ingredients_validation["response"] and steps_validation["response"]:
+            if title_validation["response"] and prep_time_validation[
+                "response"] and ingredients_validation["response"] and \
+                    steps_validation["response"]:
                 # If data posted is valid, store recipe entity.
 
                 # Create new recipe.
-                recipe = db_model_recipes.RecipesDBModel(user_id=log_info, user=user, image=image if image else None, title=title, prep_time=int(prep_time), ingredients=ingredients, steps=steps, points=0)
+                recipe = db_model_recipes.RecipesDBModel(user_id=log_info,
+                                                         user=user,
+                                                         image=image if image else None,
+                                                         title=title,
+                                                         prep_time=int(
+                                                             prep_time),
+                                                         ingredients=ingredients,
+                                                         steps=steps, points=0)
                 recipe.put()
 
                 # Get recipe key.
                 recipe_key = recipe.key().id()
 
-                # Delay 0.1sec before redirect to next page, to avoid errors reading db.
+                # Delay 0.1sec before redirect to next page, to avoid errors
+                # reading db.
                 time.sleep(0.1)
 
                 # Redirect to newly created recipe page.
                 self.redirect("/recipe?id=%s" % recipe_key)
             else:
-                # If data posted is invalid, render page with corresponding error messages.
-                self.render("publish.html", title=title, prep_time=prep_time, ingredients=ingredients, steps=steps, error_title=title_validation["info"], error_prep_time=prep_time_validation["info"], error_ingredients=ingredients_validation["info"], error_steps=steps_validation["info"], num_ingredients=num_ingredients, num_steps=num_steps)
+                # If data posted is invalid, render page with corresponding
+                # error messages.
+                self.render("publish.html", title=title, prep_time=prep_time,
+                            ingredients=ingredients, steps=steps,
+                            error_title=title_validation["info"],
+                            error_prep_time=prep_time_validation["info"],
+                            error_ingredients=ingredients_validation["info"],
+                            error_steps=steps_validation["info"],
+                            num_ingredients=num_ingredients,
+                            num_steps=num_steps)
         else:
             # If user is not logged in, redirect to error message page.
             self.redirect("/messagetouser")

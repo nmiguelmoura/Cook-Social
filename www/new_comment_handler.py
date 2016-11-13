@@ -6,7 +6,8 @@ import prefabs.cookie_handler
 import db_model_comments
 
 class NewCommentHandler(handler.Handler):
-    """Class that allows a registered and logged user to post a comment in a recipe."""
+    """Class that allows a registered and logged user to post a comment
+    in a recipe."""
 
     query_recipes = prefabs.db_query_recipes.DBQueryRecipes()
     query_users = prefabs.db_query_users.DBQueryUsers()
@@ -30,7 +31,8 @@ class NewCommentHandler(handler.Handler):
         recipe_id = self.request.get("id")
 
         if recipe_id:
-            # If recipe id has been passed, search for recipe in db and return recipe entity.
+            # If recipe id has been passed, search for recipe in db and
+            # return recipe entity.
             return self.query_recipes.search_recipes_by_id(recipe_id)
 
         # return None if no recipe_id has been found.
@@ -54,7 +56,10 @@ class NewCommentHandler(handler.Handler):
             recipe_id = self.request.get("id")
 
             # Create new entity to store comment.
-            comments = db_model_comments.CommentsDBModel(user_id=user_id, username=user.username, recipe_id=recipe_id, comment=comment)
+            comments = db_model_comments.CommentsDBModel(user_id=user_id,
+                                                         username=user.username,
+                                                         recipe_id=recipe_id,
+                                                         comment=comment)
             comments.put()
 
             # Delay 0.1sec before redirecting to avoid errors reading db.
@@ -64,7 +69,8 @@ class NewCommentHandler(handler.Handler):
             self.redirect("/recipe?id=%s" % recipe_id)
         else:
             # If comment field is empty, render page with error message.
-            self.render("new_comment.html", error_comment="The comment field is empty. Please insert a valid comment.")
+            self.render("new_comment.html",
+                        error_comment="The comment field is empty. Please insert a valid comment.")
 
     def data_verification(self, t):
         # Verify if user is logged in and recipe exists.

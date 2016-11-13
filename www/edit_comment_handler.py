@@ -22,7 +22,8 @@ class EditCommentHandler(handler.Handler):
 
     def render_get(self, comment):
         # Render the edit_comment page.
-        self.render("edit_comment.html", comment=comment.comment, recipe_id=comment.recipe_id, id=self.get_comment_id())
+        self.render("edit_comment.html", comment=comment.comment,
+                    recipe_id=comment.recipe_id, id=self.get_comment_id())
 
     def render_post(self, comment):
         # Get edited comment posted by user.
@@ -32,15 +33,20 @@ class EditCommentHandler(handler.Handler):
             comment.comment = new_comment
             comment.put()
 
-            # Delay 0.1 sec the redirect, to avoid errors reading from db in next page.
+            # Delay 0.1 sec the redirect, to avoid errors reading from db
+            # in next page.
             time.sleep(0.1)
             self.redirect("/recipe?id=%s" % comment.recipe_id)
         else:
             # If comment field is empty, render page with error message.
-            self.render("edit_comment.html", id=self.get_comment_id(), recipe_id=comment.recipe_id, error_comment="The comment field is empty. Please insert a valid comment.")
+            self.render("edit_comment.html", id=self.get_comment_id(),
+                        recipe_id=comment.recipe_id,
+                        error_comment="The comment field is empty."
+                                      " Please insert a valid comment.")
 
     def validation(self, t):
-        # Check if comment_id exists and comment author id matches user id logged in.
+        # Check if comment_id exists and comment author id matches
+        # user id logged in.
 
         # Get comment and user ids.
         comment_id = self.get_comment_id()
@@ -58,10 +64,12 @@ class EditCommentHandler(handler.Handler):
                     # Render page after post method.
                     self.render_post(comment)
             else:
-                # If comment doesn't exists or comment author id is different than user id, show error message page.
+                # If comment doesn't exists or comment author id is different
+                # than user id, show error message page.
                 self.redirect("/messagetouser?type=comment_permission_error")
         else:
-            # If comment id does not exist or user is not logged in, show error message page.
+            # If comment id does not exist or user is not logged in, show error
+            # message page.
             self.redirect("/messagetouser?type=comment_permission_error")
 
     def get(self):

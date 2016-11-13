@@ -21,14 +21,16 @@ class DeleteCommentHandler(handler.Handler):
             comment = self.query_comments.search_comments_by_id(comment_id)
 
             if comment and comment.user_id == user_id:
-                # If comment exists in db and the user editing is the same that created the comment, return data.
+                # If comment exists in db and the user editing is the same that
+                # created the comment, return data.
                 return {
                     "comment_id": comment_id,
                     "comment": comment,
                     "user": self.get_user(user_id)
                 }
             else:
-                # If comment doesn't exist in db or comment author is not the one who is logged in, redirect to error message page.
+                # If comment doesn't exist in db or comment author is not the
+                # one who is logged in, redirect to error message page.
                 self.redirect("messagetouser?type=comment_permission_error")
         else:
             # If there is no comment id, redirect to error message.
@@ -43,7 +45,8 @@ class DeleteCommentHandler(handler.Handler):
         return self.query_users.search_user_by_id(user_id)
 
     def post(self):
-        # Check if comment id matches comment in db and check if comment author is the same that is logged in.
+        # Check if comment id matches comment in db and check if comment author
+        # is the same that is logged in.
         validation = self.recipe_valid_access()
 
         if validation:
@@ -57,6 +60,7 @@ class DeleteCommentHandler(handler.Handler):
             # Delete comment.
             comment.delete()
 
-            # Delay 0.1 sec before redirecting to avoid error reading db on recipe page.
+            # Delay 0.1 sec before redirecting to avoid error reading db on
+            # recipe page.
             time.sleep(0.1)
             self.redirect("/recipe?id=%s" % recipe_id)

@@ -7,7 +7,8 @@ import secret
 
 
 class HashTools():
-    """Class that hashes passwords and performs cookie and password verification."""
+    """Class that hashes passwords and performs cookie and
+    password verification."""
 
     # Instantiate PreSecretCode class.
     SECRET = secret.SecretCode().get_secret_code()
@@ -26,7 +27,9 @@ class HashTools():
             salt = self.make_salt()
 
         # Return hashed password plus salt.
-        return "%s|%s" % (hashlib.sha256(self.SECRET+username+password+salt).hexdigest(), salt)
+        return "%s|%s" % (
+        hashlib.sha256(self.SECRET + username + password + salt).hexdigest(),
+        salt)
 
     def check_secure_password(self, username, password, h):
         # Get salt from given password.

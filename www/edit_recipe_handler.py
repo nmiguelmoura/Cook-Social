@@ -4,6 +4,7 @@ import prefabs.cookie_handler
 import prefabs.db_query_recipes
 import prefabs.recipe_validation
 
+
 class EditRecipeHandler(handler.Handler):
     """Class that allows recipe author to edit a stored recipe."""
 
@@ -21,10 +22,12 @@ class EditRecipeHandler(handler.Handler):
             recipe = self.query_recipes.search_recipes_by_id(recipe_id)
 
             if recipe and recipe.user_id == user_id:
-                # If recipe exists in db and recipe author is the same user that is logged in, return recipe entity and id.
+                # If recipe exists in db and recipe author is the same user
+                # that is logged in, return recipe entity and id.
                 return {"id": recipe_id, "recipe": recipe}
             else:
-                # If recipe doesn't exists or recipe author doesn't match user id, redirect to error message page.
+                # If recipe doesn't exists or recipe author doesn't match user
+                # id, redirect to error message page.
                 self.redirect("messagetouser?type=permission_error")
         else:
             # If recipe id doesn't exist, redirect to error message page.
@@ -41,7 +44,12 @@ class EditRecipeHandler(handler.Handler):
         if validation_data:
             # If data is valid, render page with stored recipe info.
             recipe = validation_data["recipe"]
-            self.render("edit_recipe.html", id=validation_data["id"], title=recipe.title, prep_time=recipe.prep_time, num_ingredients=len(recipe.ingredients), ingredients=recipe.ingredients, num_steps=len(recipe.steps), steps=recipe.steps)
+            self.render("edit_recipe.html", id=validation_data["id"],
+                        title=recipe.title, prep_time=recipe.prep_time,
+                        num_ingredients=len(recipe.ingredients),
+                        ingredients=recipe.ingredients,
+                        num_steps=len(recipe.steps),
+                        steps=recipe.steps)
 
     def post(self):
         # Check if recipe exists and if user is the recipe author.
@@ -65,12 +73,14 @@ class EditRecipeHandler(handler.Handler):
             # Create a list to store ingredients.
             ingredients = []
 
-            # Loop through each ingredient box available and previously selected by user.
+            # Loop through each ingredient box available and previously
+            # selected by user.
             for i in range(0, num_ingredients):
                 # Get text edited by user.
                 ing = self.request.get("ing_%s" % i)
                 if ing != "":
-                    # If field is not empty, store ingredient in ingredients list.
+                    # If field is not empty, store ingredient in
+                    # ingredients list.
                     ingredients.append(ing)
 
             # Check the number of steps selected by user.
@@ -79,7 +89,8 @@ class EditRecipeHandler(handler.Handler):
             # Create a list to store steps.
             steps = []
 
-            # Loop through each step box available and previously selected by user.
+            # Loop through each step box available and previously
+            # selected by user.
             for i in range(0, num_steps):
                 # Get text edited by user.
                 step = self.request.get("step_%s" % i)
@@ -92,11 +103,15 @@ class EditRecipeHandler(handler.Handler):
 
             # Check if data posted is valid.
             title_validation = self.recipe_validation.validate_title(title)
-            prep_time_validation = self.recipe_validation.validate_prep_time(prep_time)
-            ingredients_validation = self.recipe_validation.list_length_validation(ingredients, "ingredient")
-            steps_validation = self.recipe_validation.list_length_validation(steps, "step")
+            prep_time_validation = self.recipe_validation.validate_prep_time(
+                prep_time)
+            ingredients_validation = self.recipe_validation.list_length_validation(
+                ingredients, "ingredient")
+            steps_validation = self.recipe_validation.list_length_validation(
+                steps, "step")
 
-            if title_validation["response"] and prep_time_validation["response"] and ingredients_validation[
+            if title_validation["response"] and prep_time_validation[
+                "response"] and ingredients_validation[
                 "response"] and steps_validation["response"]:
                 # If data posted is valid, udpdate recipe entity.
                 recipe.title = title
@@ -113,11 +128,20 @@ class EditRecipeHandler(handler.Handler):
                 # Get recipe key.
                 recipe_key = recipe.key().id()
 
-                # Delay 0.1 sec before redirect to recipe page to avoid errors reading db.
+                # Delay 0.1 sec before redirect to recipe page to avoid errors
+                # reading db.
                 time.sleep(0.1)
 
                 # Redirect to recipe page.
                 self.redirect("/recipe?id=%s" % recipe_key)
             else:
                 # If data posted is not valid, render page with error messages.
-                self.render("edit_recipe.html", id=validation_data["id"], title=title, prep_time=prep_time, ingredients=ingredients, steps=steps, error_title=title_validation["info"], error_prep_time=prep_time_validation["info"], error_ingredients=ingredients_validation["info"], error_steps=steps_validation["info"], num_ingredients=num_ingredients, num_steps=num_steps)
+                self.render("edit_recipe.html", id=validation_data["id"],
+                            title=title, prep_time=prep_time,
+                            ingredients=ingredients, steps=steps,
+                            error_title=title_validation["info"],
+                            error_prep_time=prep_time_validation["info"],
+                            error_ingredients=ingredients_validation["info"],
+                            error_steps=steps_validation["info"],
+                            num_ingredients=num_ingredients,
+                            num_steps=num_steps)

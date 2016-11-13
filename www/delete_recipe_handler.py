@@ -19,10 +19,13 @@ class DeleteRecipeHandler(handler.Handler):
             recipe = self.query_recipes.search_recipes_by_id(recipe_id)
 
             if recipe and recipe.user_id == user_id:
-                # If recipe exists in db, and recipe author id matches user id, return it.
+                # If recipe exists in db, and recipe author id matches user id,
+                # return it.
                 return recipe
             else:
-                # If recipe does not exist in db or recipe author is different from the one that is logged in, redirect to error message page.
+                # If recipe does not exist in db or recipe author is different
+                # from the one that is logged in, redirect to error
+                # message page.
                 self.redirect("messagetouser?type=permission_error")
         else:
             # If there is no recipe id, redirect to message page.
@@ -33,10 +36,12 @@ class DeleteRecipeHandler(handler.Handler):
         return self.cookies.get_loginfo_cookie(self)
 
     def post(self):
-        # Check if recipe exists and if recipe author is the same that is logged in.
+        # Check if recipe exists and if recipe author is the same that
+        # is logged in.
         recipe = self.recipe_valid_access()
         if recipe:
-            # If data pass validation, get recipe title to show on message page and delete it from db.
+            # If data pass validation, get recipe title to show on message page
+            # and delete it from db.
             title = recipe.title
             recipe.delete()
             self.render("delete_recipe.html", title=title)

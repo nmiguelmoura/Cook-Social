@@ -2,7 +2,8 @@ import handler
 import prefabs.db_query_recipes
 
 class TopHandler(handler.Handler):
-    """Class that handles top voted page. Shows recipes with largest number of points."""
+    """Class that handles top voted page. Shows recipes with largest
+    number of points."""
 
     query_recipes = prefabs.db_query_recipes.DBQueryRecipes()
 

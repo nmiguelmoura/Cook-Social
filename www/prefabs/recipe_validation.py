@@ -1,20 +1,24 @@
 import re
 
+
 class RecipeValidation:
     """Class that validates recipes."""
+
     def __init__(self):
         pass
 
     def validate_title(self, title):
         if title == "":
             # If title hasn't been passed return error message
-            return {"response": None, "info": "Please insert a title for this recipe."}
+            return {"response": None,
+                    "info": "Please insert a title for this recipe."}
         else:
             # If title has been passed, return title on response.
             return {"response": title, "info": ""}
 
     def is_number(self, s):
-        # Function similar as the one seen in http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-float-in-python
+        # Function similar as the one seen in
+        # http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-float-in-python
         # Check if a given value is a number.
         try:
             # If value is a number, return True.
@@ -38,4 +42,5 @@ class RecipeValidation:
             return {"response": list, "info": ""}
         else:
             # If a given list is empty, return error message with given string.
-            return {"response": None, "info": "Please insert at least one %s." % string}
+            return {"response": None,
+                    "info": "Please insert at least one %s." % string}
