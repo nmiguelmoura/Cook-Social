@@ -3,7 +3,7 @@ import hmac
 import random
 import string
 
-import secret
+import secret_codes
 
 
 class HashTools():
@@ -11,7 +11,7 @@ class HashTools():
     password verification."""
 
     # Instantiate PreSecretCode class.
-    SECRET = secret.SecretCode().get_secret_code()
+    SECRET = secret_codes.SecretCode().get_secret_code()
 
     def __init__(self):
         pass
