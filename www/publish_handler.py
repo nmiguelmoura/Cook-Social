@@ -76,6 +76,10 @@ class PublishHandler(handler.Handler):
             # Get image selected by  user from input file.
             image = self.request.get("photo")
 
+            if image:
+                # Resize image. Only works if you have PIL installed.
+                image = images.resize(image, 800)
+
             # Check if data posted is valid.
             title_validation = self.recipe_validation.validate_title(title)
             prep_time_validation = self.recipe_validation.validate_prep_time(

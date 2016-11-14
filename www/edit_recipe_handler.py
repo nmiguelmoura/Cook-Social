@@ -3,6 +3,7 @@ import handler
 import prefabs.cookie_handler
 import prefabs.db_query_recipes
 import prefabs.recipe_validation
+from google.appengine.api import images
 
 
 class EditRecipeHandler(handler.Handler):
@@ -100,6 +101,10 @@ class EditRecipeHandler(handler.Handler):
 
             # Get image selected by  user from input file.
             image = self.request.get("photo")
+
+            if image:
+                # Resize image. Only works if you have PIL installed.
+                image = images.resize(image, 800)
 
             # Check if data posted is valid.
             title_validation = self.recipe_validation.validate_title(title)
