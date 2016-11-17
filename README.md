@@ -1,6 +1,6 @@
 #Social Cooks [Link](http://socialcooks.org/)
 
-This repository holds the code to Social Cook website.
+This repository holds the code to Social Cooks website.
 The website allows you to share your recipes with other users, comment and vote.
 
 ##Features
