@@ -1,4 +1,4 @@
-#Social Cook [Link](http://social-cook.appspot.com/)
+#Social Cooks [Link](http://socialcooks.org/)
 
 This repository holds the code to Social Cook website.
 The website allows you to share your recipes with other users, comment and vote.
@@ -14,10 +14,10 @@ The website allows you to share your recipes with other users, comment and vote.
 - Share recipes in facebook and twitter
 
 ##Atention
-Update www/prefabs/secret.py with a secret pass and smtp login info.
+Create a secret.py file in www/prefabs to allow getting secret hash code, smtp login and password.
 
 ##Where to get
-[Social Cook](http://social-cook.appspot.com/)
+[Social Cooks](http://socialcooks.org/)
 
 ##Project install on local development server
 - Create a new Cloud Platform Console project or retrieve the project ID of an existing project from the Google Cloud Platform Console.
