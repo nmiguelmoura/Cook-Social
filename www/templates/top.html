@@ -7,8 +7,8 @@
 {% block content %}
 <div id="top" class="page-content wrapper">
     <section class="padded-col-sm-12-12">
-        <h2>Top voted</h2>
-        <p class="generic-text generic-text-left">These are the top voted recipes on Cook Social:</p>
+        <h2>Favourite</h2>
+        <p class="generic-text generic-text-left">These are the favourite recipes on Cook Social:</p>
         <div class="recipes-container-rectangles">
             {% for recipe in recipes %}
             <a href="/recipe?id={{recipe.key().id()}}">
