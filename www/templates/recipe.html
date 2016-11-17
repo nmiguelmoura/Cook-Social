@@ -8,7 +8,7 @@
 <div id="recipe" class="page-content wrapper">
     <section class="col-sm-12-12 title">
         <h2 class="make-ellipsis">{{title}}</h2>
-        <p class="generic-text make-ellipsis">Cooked by <a href="/myrecipes?id={{author_id}}" class="special-link-inline">{{author}}</a></p>
+        <p class="generic-text make-ellipsis">Cozinhado por <a href="/myrecipes?id={{author_id}}" class="special-link-inline">{{author}}</a></p>
         <div class="prep image-container">
             {% if image %}
                 <img src="/imagerecipe?img_id={{id}}">
@@ -18,11 +18,11 @@
         </div>
         <div class="topics padded-col-sm-12-12 padded-col-md-12-12">
             <div class="prep-time">
-                <p class="generic-topic strong-text">Preparation time</p>
-                <p class="generic-topic">{{prep_time}} minutes</p>
+                <p class="generic-topic strong-text">Tempo de preparação</p>
+                <p class="generic-topic">{{prep_time}} minutos</p>
             </div>
             <div class="prep-components">
-                <p class="generic-topic strong-text">What do I need?</p>
+                <p class="generic-topic strong-text">Ingredientes</p>
                 <ul>
                     {% for ingredient in ingredients %}
                     <li>{{ingredient}}</li>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div class="prep-steps">
-                <p class="generic-topic strong-text">How can I prepare?</p>
+                <p class="generic-topic strong-text">Preparação</p>
                 <ol>
                     {% for step in steps %}
                     <li>{{step}}</li>
@@ -40,15 +40,15 @@
         </div>
         {% if user_id == author_id%}
             <div class="edit padded-col-sm-12-12">
-                <a href="/editrecipe?id={{id}}"><p><img src="static_content/assets/edit.png">Edit or delete this recipe</p></a>
+                <a href="/editrecipe?id={{id}}"><p><img src="static_content/assets/edit.png">Editar or apagar esta receita</p></a>
             </div>
         {% endif %}
     </section>
     <section class="status col-sm-12-12 wrapper-inside">
         <div class="points col-sm-8-12 col-md-4-12 wrapper-inside">
             <div class="points-texts padded-col-sm-8-12">
-                <p>This recipe has</p>
-                <p>{{points}} points</p>
+                <p>Esta receita tem</p>
+                <p>{{points}} pontos</p>
             </div>
             <div class="heart padded-col-sm-4-12">
                 <form method="post">
@@ -71,11 +71,11 @@
             </div>
         </div>
         <div class="more col-sm-12-12 col-md-6-12">
-            <a href="/myrecipes?id={{author_id}}"><p>See more from this cook</p></a>
+            <a href="/myrecipes?id={{author_id}}"><p>Ver mais receitas deste cozinheiro</p></a>
         </div>
     </section>
     <section class="comments padded-col-sm-12-12 padded-col-md-12-12">
-        <p class="generic-topic strong-text">Comments and questions</p>
+        <p class="generic-topic strong-text">Comentários e questões</p>
         {% for comment in comments %}
         <article>
             <p class="comment">{{comment.comment}}</p>
@@ -85,21 +85,21 @@
                 {% endif %}
         </article>
         {% endfor %}
-        <p class="generic-text strong-text">Post a comment or question</p>
+        <p class="generic-text strong-text">Enviar um commentário or questão</p>
         <div class="button-container col-sm-12-12 col-md-6-12">
-            <a href="/newcomment?id={{id}}" class="button"><p>Post comment</p></a>
+            <a href="/newcomment?id={{id}}" class="button"><p>Enviar comentário</p></a>
         </div>
     </section>
     <section class="padded-col-sm-12-12 col-md-6-12 other-options">
-        <p class="generic-text strong-text">Publish or view your recipes</p>
+        <p class="generic-text strong-text">Publique ou veja as suas receitas</p>
         <div class="button-container col-sm-12-12">
-            <a href="/publish" class="button"><p>Publish</p></a>
+            <a href="/publish" class="button"><p>Publicar</p></a>
         </div>
         <div class="button-container col-sm-12-12">
-            <a href="/kitchen" class="button"><p>My kitchen</p></a>
+            <a href="/kitchen" class="button"><p>A minha cozinha</p></a>
         </div>
         <div class="button-container col-sm-12-12">
-            <a href="/myrecipes?id={{user_id}}" class="button"><p>My recipes</p></a>
+            <a href="/myrecipes?id={{user_id}}" class="button"><p>As minhas receitas</p></a>
         </div>
     </section>
 </div>
