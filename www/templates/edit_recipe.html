@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>Edit recipe - Social Cooks</title>
+<title>Editar receita - Social Cooks</title>
 {% endblock %}
 
 {% block content %}
 <div id="signup" class="page-content wrapper-special">
     <section class="padded-col-sm-12-12">
-        <h2>Publish new recipe</h2>
+        <h2>Publicar nova receita</h2>
         <form method="post" enctype="multipart/form-data">
             <div class="input-labels">
                 <div class="label">
-                    <p>Title</p>
-                    <input type="text" placeholder="Insert recipe title" name="title" value="{{title}}">
+                    <p>Título</p>
+                    <input type="text" placeholder="Insira o título da receita" name="title" value="{{title}}">
                     <p class="error-message">{{error_title}}</p>
                 </div>
                 <div class="label">
-                    <p>Preparation time (in minutes)</p>
-                    <input type="number" placeholder="Insert preparation time in minutes" name="prep_time" value="{{prep_time}}">
+                    <p>Tempo de preparação (em minutos)</p>
+                    <input type="number" placeholder="Insira o tempo de preparação em minutos" name="prep_time" value="{{prep_time}}">
                     <p class="error-message">{{error_prep_time}}</p>
                 </div>
                 <div class="label">
@@ -26,14 +26,14 @@
                     <div class="file-select-box">
                         <div class="input-file">
                             <div class="button-container col-sm-12-12">
-                                <a href="/login" class="button"><p>Select picture</p></a>
+                                <a href="/login" class="button"><p>Selecione uma fotografia</p></a>
                             </div>
                             <input type="file" name="photo" class="input-file-btn">
                         </div>
                     </div>
                 </div>
                 <div class="label">
-                    <p>N.º of ingredients</p>
+                    <p>N.º de ingredientes</p>
                     <select name="num_ing" data-pre-value="{{num_ingredients}}">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -54,64 +54,64 @@
                 <div class="ingredients">
                     <p class="error-message">{{error_ingredients}}</p>
                     <div class="label">
-                        <p class="normal">Ingredient 1</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_0" value="{{ingredients[0]}}">
+                        <p class="normal">Ingrediente 1</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_0" value="{{ingredients[0]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 2</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_1" value="{{ingredients[1]}}">
+                        <p class="normal">Ingrediente 2</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_1" value="{{ingredients[1]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 3</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_2" value="{{ingredients[2]}}">
+                        <p class="normal">Ingrediente 3</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_2" value="{{ingredients[2]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 4</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_3" value="{{ingredients[3]}}">
+                        <p class="normal">Ingrediente 4</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_3" value="{{ingredients[3]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 5</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_4" value="{{ingredients[4]}}">
+                        <p class="normal">Ingrediente 5</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_4" value="{{ingredients[4]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 6</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_5" value="{{ingredients[5]}}">
+                        <p class="normal">Ingrediente 6</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_5" value="{{ingredients[5]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 7</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_6" value="{{ingredients[6]}}">
+                        <p class="normal">Ingrediente 7</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_6" value="{{ingredients[6]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 8</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_7" value="{{ingredients[7]}}">
+                        <p class="normal">Ingrediente 8</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_7" value="{{ingredients[7]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 9</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_8" value="{{ingredients[8]}}">
+                        <p class="normal">Ingrediente 9</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_8" value="{{ingredients[8]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 10</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_9" value="{{ingredients[9]}}">
+                        <p class="normal">Ingrediente 10</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_9" value="{{ingredients[9]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 11</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_10" value="{{ingredients[10]}}">
+                        <p class="normal">Ingrediente 11</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_10" value="{{ingredients[10]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 12</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_11" value="{{ingredients[11]}}">
+                        <p class="normal">Ingrediente 12</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_11" value="{{ingredients[11]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 13</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_12" value="{{ingredients[12]}}">
+                        <p class="normal">Ingrediente 13</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_12" value="{{ingredients[12]}}">
                     </div>
                     <div class="label">
-                        <p class="normal">Ingredient 14</p>
-                        <input type="text" placeholder="Insert ingredient here" name="ing_13" value="{{ingredients[13]}}">
+                        <p class="normal">Ingrediente 14</p>
+                        <input type="text" placeholder="Coloque aqui o ingrediente" name="ing_13" value="{{ingredients[13]}}">
                     </div>
                 </div>
                 <div class="label">
-                    <p>N.º of preparation steps</p>
+                    <p>N.º de passos para a preparação</p>
                     <select name="num_steps" data-pre-value="{{num_steps}}">
                         <option value="1">1</option>
                         <option value="2" selected="selected">2</option>
@@ -125,55 +125,55 @@
                 <div class="steps">
                     <p class="error-message">{{error_steps}}</p>
                     <div class="label">
-                        <p class="normal">Step 1</p>
-                        <textarea placeholder="Insert preparation step here" name="step_0">{{steps[0]}}</textarea>
+                        <p class="normal">Passo 1</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_0">{{steps[0]}}</textarea>
                     </div>
                     <div class="label">
-                        <p class="normal">Step 2</p>
-                        <textarea placeholder="Insert preparation step here" name="step_1">{{steps[1]}}</textarea>
+                        <p class="normal">Passo 2</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_1">{{steps[1]}}</textarea>
                     </div>
                     <div class="label">
-                        <p class="normal">Step 3</p>
-                        <textarea placeholder="Insert preparation step here" name="step_2">{{steps[2]}}</textarea>
+                        <p class="normal">Passo 3</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_2">{{steps[2]}}</textarea>
                     </div>
                     <div class="label">
-                        <p class="normal">Step 4</p>
-                        <textarea placeholder="Insert preparation step here" name="step_3">{{steps[3]}}</textarea>
+                        <p class="normal">Passo 4</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_3">{{steps[3]}}</textarea>
                     </div>
                     <div class="label">
-                        <p class="normal">Step 5</p>
-                        <textarea placeholder="Insert preparation step here" name="step_4">{{steps[4]}}</textarea>
+                        <p class="normal">Passo 5</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_4">{{steps[4]}}</textarea>
                     </div>
                     <div class="label">
-                        <p class="normal">Step 6</p>
-                        <textarea placeholder="Insert preparation step here" name="step_5">{{steps[5]}}</textarea>
+                        <p class="normal">Passo 6</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_5">{{steps[5]}}</textarea>
                     </div>
                     <div class="label">
-                        <p class="normal">Step 7</p>
-                        <textarea placeholder="Insert preparation step here" name="step_6">{{steps[6]}}</textarea>
+                        <p class="normal">Passo 7</p>
+                        <textarea placeholder="Escreva aqui como preparar a receita" name="step_6">{{steps[6]}}</textarea>
                     </div>
                 </div>
             </div>
             <div class="button-container col-xs-12-12">
                 <div class="input-submit">
-                    <input type="submit" value="Save changes">
+                    <input type="submit" value="Salvar alterações">
                 </div>
             </div>
         </form>
     </section>
     <section class="padded-col-sm-12-12 other-options">
-        <p class="generic-text strong-text">Don't want to change this recipe?</p>
+        <p class="generic-text strong-text">Não quer alterar esta receita?</p>
         <div class="button-container col-sm-12-12">
-            <a href="/recipe?id={{id}}" class="button"><p>Cancel</p></a>
+            <a href="/recipe?id={{id}}" class="button"><p>Cancelar</p></a>
         </div>
     </section>
     <section class="padded-col-sm-12-12 other-options">
-        <p class="generic-text strong-text">Do you want to delete this recipe?</p>
+        <p class="generic-text strong-text">Quer apagar esta receita?</p>
         <div class="button-container col-sm-12-12">
             <form method="post" action="/deleterecipe">
                 <input type="hidden" name="id" value="{{id}}">
                 <div class="input-submit">
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Apagar receita">
                 </div>
             </form>
         </div>
