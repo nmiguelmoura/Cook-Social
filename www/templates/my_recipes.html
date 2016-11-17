@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>{{username}}'s recipes - Social Cooks</title>
+<title>Receitas de {{username}} - Social Cooks</title>
 {% endblock %}
 
 {% block content %}
 <div id="my-recipes" class="page-content wrapper">
     <section class="padded-col-sm-12-12">
-        <h2>{{username}}'s recipes</h2>
+        <h2>Receitas de {{username}}</h2>
         <div class="recipes-container-rectangles">
             {% for recipe in recipes %}
             <a href="/recipe?id={{recipe.key().id()}}">
@@ -25,13 +25,13 @@
                     </div>
                     <div class="col-sm-7-12 col-md-8-12 col-lg-9-12 recipe-left-side">
                         <h3 class="make-ellipsis">{{recipe.title}}</h3>
-                        <p class="prep-time">Preparation time: {{recipe.prep_time}} min</p>
+                        <p class="prep-time">Preparação: {{recipe.prep_time}} min</p>
                     </div>
                     <div class="col-sm-2-12 col-md-4-12 col-lg-3-12 recipe-right-side">
                         <p>{{recipe.points}}<br><span class="small-text">pts</span></p>
                     </div>
                     <div class="col-sm-12-12 col-md-4-12 col-lg-3-12 recipe-components">
-                        <p class="general-text strong-text">What do I need?</p>
+                        <p class="general-text strong-text">Ingredientes?</p>
                         <ul>
                             {% for ing in recipe.ingredients%}
                             <li>{{ing}}</li>
@@ -39,7 +39,7 @@
                         </ul>
                     </div>
                     <div class="recipe-open col-sm-12-12">
-                        <p>Open recipe</p>
+                        <p>Abrir receita</p>
                     </div>
                 </article>
             </a>
@@ -48,12 +48,12 @@
         <p class="generic-text-left">{{no_recipes_message}}</section>
     </section>
     <section class="padded-col-sm-12-12 col-md-6-12 other-options">
-        <p class="generic-text strong-text">Publish or go to your kitchen</p>
+        <p class="generic-text strong-text">Publique ou visite a sua cozinha</p>
         <div class="button-container col-sm-12-12">
-            <a href="/publish" class="button"><p>Publish new recipe</p></a>
+            <a href="/publish" class="button"><p>Publicar nova receita</p></a>
         </div>
         <div class="button-container col-sm-12-12">
-            <a href="/kitchen" class="button"><p>My kitchen</p></a>
+            <a href="/kitchen" class="button"><p>A minha cozinha</p></a>
         </div>
     </section>
 </div>
