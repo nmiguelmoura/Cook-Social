@@ -16,19 +16,19 @@
 </div>
 <div id="main" class="page-content wrapper">
     <section class="padded-col-sm-12-12 padded-col-md-12-12">
-        <h2>Welcome</h2>
-        <p class="generic-text">This is Cook Social, a place where you can start sharing your cooking recipes.</p>
+        <h2>Bem-vindo(a)</h2>
+        <p class="generic-text">Social Cooks é o sítio ideal para começar a partilhar as suas receitas deliciosas com outros utilizadores. Faça login ou registe-se e comece já a partilhar.</p>
         <div class="wrapper-inside buttons">
             <div class="button-container col-sm-6-12 col-md-6-12">
                 <a href="/login" class="button"><p>Login</p></a>
             </div>
             <div class="button-container col-sm-6-12 col-md-6-12">
-                <a href="/signup" class="button"><p>Signup</p></a>
+                <a href="/signup" class="button"><p>Registo</p></a>
             </div>
         </div>
     </section>
     <section class="col-sm-12-12 padded-col-md-12-12">
-        <h2>What's new?</h2>
+        <h2>Novidades</h2>
         <div class="recipes-container-rectangles">
             {% for recipe in recipes %}
             <a href="/recipe?id={{recipe.key().id()}}">
@@ -43,7 +43,7 @@
                     <div class="col-sm-7-12 recipe-left-side">
                         <h3 class="make-ellipsis">{{recipe.title}}</h3>
                         <p class="author make-ellipsis">{{recipe.user}}</p>
-                        <p class="prep-time">Preparation time: {{recipe.prep_time}} min</p>
+                        <p class="prep-time">Preparação: {{recipe.prep_time}} min</p>
                     </div>
                     <div class="col-sm-2-12 recipe-right-side">
                         <p>{{recipe.points}}<br><span class="small-text">pts</span></p>
