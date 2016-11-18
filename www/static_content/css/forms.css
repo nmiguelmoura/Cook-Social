@@ -52,3 +52,10 @@ form .input-file-btn {
     opacity: 0;
     cursor: pointer;
 }
+
+.g-recaptcha-div {
+    width: 302px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
