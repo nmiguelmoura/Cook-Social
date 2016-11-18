@@ -2,6 +2,7 @@
 
 {% block head %}
 <title>Signup - Social Cooks</title>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}
 
 {% block content %}
@@ -31,6 +32,10 @@
                     <p class="error-message"></p>
                 </div>
             </div>
+            <div class="g-recaptcha-div">
+                <div class="g-recaptcha" data-sitekey="6LfAVwwUAAAAAJWCue0ecx8wkvMxSiK_gC6qxPZb"></div>
+            </div>
+            <p class="error-message">{{error_captcha}}</p>
             <div class="button-container col-xs-12-12">
                 <div class="input-submit">
                     <input type="submit" value="Create account">
