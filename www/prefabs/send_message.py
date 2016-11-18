@@ -22,7 +22,7 @@ class SendMessage:
         msg = MIMEText(
             'Password recovery. Your new password to Social Cook is: "%s"' % password)
         msg['Subject'] = "Hello"
-        msg['From'] = "SocialCook@SocialCook.com"
+        msg['From'] = "SocialCooks@SocialCooks.org"
         msg['To'] = sendTo
         self.send_mail(msg)
 
@@ -31,7 +31,7 @@ class SendMessage:
         msg = MIMEText('Hi Nuno, "%s" sent you the following message: "%s"' % (
         email, message), "plain", "utf-8")
         msg['Subject'] = "Hello"
-        msg['From'] = "SocialCook@SocialCook.com"
+        msg['From'] = "SocialCooks@SocialCooks.org"
         msg['To'] = "nmiguelmoura@gmail.com"
         self.send_mail(msg)
 
