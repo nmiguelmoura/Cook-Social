@@ -5,6 +5,7 @@ import prefabs.cookie_handler
 import prefabs.hash_tools
 import prefabs.signup_validation
 import time
+import prefabs.captcha_validation
 
 
 class SignupHandler(handler.Handler):
@@ -14,6 +15,7 @@ class SignupHandler(handler.Handler):
     hashs = prefabs.hash_tools.HashTools()
     query_users = prefabs.db_query_users.DBQueryUsers()
     cookies = prefabs.cookie_handler.CookieHandler()
+    captcha = prefabs.captcha_validation.CaptchaValidation()
 
     def get(self):
         if self.cookies.get_loginfo_cookie(self):
@@ -30,6 +32,11 @@ class SignupHandler(handler.Handler):
         password = self.request.get("password")
         verify = self.request.get("verify")
 
+        # Get reCaptcha user input.
+        recaptcha_user_response = self.request.get("g-recaptcha-response")
+
+        recaptcha_validation = self.captcha.validate(self, recaptcha_user_response)
+
         # Validate username.
         username_validation = self.validation.username_verify(username)
 
@@ -40,7 +47,7 @@ class SignupHandler(handler.Handler):
         password_validation = self.validation.test_password(password, verify)
 
         if username_validation["response"] and email_validation["response"] and \
-                password_validation["response"]:
+                password_validation["response"] and recaptcha_validation["response"]:
             # Run if posted data is all valid.
 
             # Check if username is available.
@@ -59,7 +66,8 @@ class SignupHandler(handler.Handler):
             self.render('sign_up.html', username=username, email=email,
                         error_username=username_validation["info"],
                         error_email=email_validation["info"],
-                        error_password=password_validation["info"])
+                        error_password=password_validation["info"],
+                        error_captcha=recaptcha_validation["info"])
 
     def check_username_availability(self, username):
         # Query users to check if username chosen is already in use and

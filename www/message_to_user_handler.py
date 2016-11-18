@@ -25,6 +25,10 @@ class MessageToUserHandler(handler.Handler):
             title = "Permission error"
             message = "You are not allowed to edit this recipe. " \
                       "You can only edit your own recipes."
+        elif type == "unexpected_error":
+            title = "Unexpected error"
+            message = "An unexpected error has occured. " \
+                      "Please try again."
         else:
             title = "Page not found"
             message = "The page you requested was not found!"
