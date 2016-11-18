@@ -5,11 +5,7 @@ import prefabs.cookie_handler
 import prefabs.hash_tools
 import prefabs.signup_validation
 import time
-import prefabs.secret_codes
-import urllib
-from google.appengine.api import urlfetch
-import json
-
+import prefabs.captcha_validation
 
 
 class SignupHandler(handler.Handler):
@@ -19,7 +15,7 @@ class SignupHandler(handler.Handler):
     hashs = prefabs.hash_tools.HashTools()
     query_users = prefabs.db_query_users.DBQueryUsers()
     cookies = prefabs.cookie_handler.CookieHandler()
-    secret = prefabs.secret_codes.SecretCode()
+    captcha = prefabs.captcha_validation.CaptchaValidation()
 
     def get(self):
         if self.cookies.get_loginfo_cookie(self):
@@ -39,39 +35,7 @@ class SignupHandler(handler.Handler):
         # Get reCaptcha user input.
         recaptcha_user_response = self.request.get("g-recaptcha-response")
 
-        # Assemble data to send to post method.
-        data = {
-            "secret": self.secret.get_recaptcha_code(),
-            "response": recaptcha_user_response
-        }
-
-        recaptcha_validation = {
-            "response": False,
-            "info": "Please tick box above to prove you are not a robot."
-        }
-
-        try:
-            # Try to post data and wait for response
-            form_data = urllib.urlencode(data)
-            headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-            result = urlfetch.fetch(
-                url='https://www.google.com/recaptcha/api/siteverify',
-                payload=form_data,
-                method=urlfetch.POST,
-                headers=headers)
-
-            # Json loading.
-            validation = json.loads(result.content)
-            if validation["success"]:
-                # If answer is True, pass it to recaptcha_validation and erase message
-                recaptcha_validation = {
-                    "response": True,
-                    "info": ""
-                }
-
-        except urlfetch.Error:
-            # If can't validate recaptcha answer
-            self.redirect("/messagetouser?id=unexpected_error")
+        recaptcha_validation = self.captcha.validate(self, recaptcha_user_response)
 
         # Validate username.
         username_validation = self.validation.username_verify(username)
