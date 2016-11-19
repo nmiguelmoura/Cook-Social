@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import handler
 import prefabs.db_query_users
 import prefabs.cookie_handler

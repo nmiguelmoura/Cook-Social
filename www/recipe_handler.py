@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import handler
 import prefabs.db_query_recipes
 import prefabs.db_query_users
@@ -137,7 +139,8 @@ class RecipeHandler(handler.Handler):
                                  values["recipe_author"], values["user_id"],
                                  values["user_pointed"], values["comments"],
                                  alert_window=True,
-                                 alert_message="You can't vote in your own recipes!")
+                                 alert_message="Não pode votar nas suas próprias "
+                                               "receitas!")
             else:
                 # If logged user is not recipe author, allow to add or
                 # remove point.

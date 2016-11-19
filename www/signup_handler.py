@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import handler
 import db_model_users
 import prefabs.db_query_users
@@ -58,7 +60,8 @@ class SignupHandler(handler.Handler):
                 self.store_data(username, email, password)
             else:
                 # If username is unavailable, render page with error message.
-                message = "This username already exists. Please choose another one."
+                message = "Este nome de utilizador já se encontra registado, " \
+                          "por favor escolha outro."
                 self.render('sign_up.html', username=username, email=email,
                             error_username=message)
         else:

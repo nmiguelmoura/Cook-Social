@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import smtplib
 from email.mime.text import MIMEText
 
@@ -20,7 +22,7 @@ class SendMessage:
     def send_password(self, sendTo, password):
         # Compose message if user requests new password
         msg = MIMEText(
-            'Password recovery. Your new password to Social Cook is: "%s"' % password)
+            'Recuperação de palavra-passe. A sua nova palavra-passe é: "%s"' % password)
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCooks@SocialCooks.org"
         msg['To'] = sendTo
@@ -28,7 +30,7 @@ class SendMessage:
 
     def send_contact(self, email, message):
         # Compose message if user sends message to portal
-        msg = MIMEText('Hi Nuno, "%s" sent you the following message: "%s"' % (
+        msg = MIMEText('Olá Nuno, "%s" enviou a seguinte mensagem: "%s"' % (
         email, message), "plain", "utf-8")
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCooks@SocialCooks.org"

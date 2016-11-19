@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import handler
 import prefabs.db_query_users
 import prefabs.cookie_handler
@@ -40,7 +42,7 @@ class LoginHandler(handler.Handler):
         # Id user does not exist or password doesn't match, render page with
         # error message.
         self.render('login.html', username=username,
-                    error_message="Invalid username or password.")
+                    error_message="Nome de utilizador ou palavra-chave invalida.")
 
     def verify_password(self, existing_user, given_password):
         # Compare password posted and stored and return result.

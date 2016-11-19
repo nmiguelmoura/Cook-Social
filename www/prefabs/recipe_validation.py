@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 
 
@@ -11,7 +13,7 @@ class RecipeValidation:
         if title == "":
             # If title hasn't been passed return error message
             return {"response": None,
-                    "info": "Please insert a title for this recipe."}
+                    "info": "Por favor dê um nome a esta receita."}
         else:
             # If title has been passed, return title on response.
             return {"response": title, "info": ""}
@@ -34,7 +36,7 @@ class RecipeValidation:
             return {"response": prep_time, "info": ""}
         else:
             # If prep_time is not a number, return error message.
-            return {"response": None, "info": "Please insert a valid number."}
+            return {"response": None, "info": "Por favor introduza um número válido."}
 
     def list_length_validation(self, list_to_validate, string):
         if len(list_to_validate) > 0:
@@ -43,4 +45,4 @@ class RecipeValidation:
         else:
             # If a given list is empty, return error message with given string.
             return {"response": None,
-                    "info": "Please insert at least one %s." % string}
+                    "info": "Por favor indique pelo menos um %s." % string}

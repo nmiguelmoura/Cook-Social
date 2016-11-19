@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import prefabs.send_message
 import prefabs.signup_validation
 import handler
@@ -17,8 +19,8 @@ class ContactHandler(handler.Handler):
         message = self.request.get("message")
 
         # Generate error message if comment box is empty.
-        error_comment = "Empty message. Please send us your" \
-                        " questions or suggestions." if message == "" else ""
+        error_comment = "Mensagem sem conteúdo. Por favor envie-nos as suas" \
+                        " questões ou sugestões." if message == "" else ""
 
         # Validate email.
         email_validation = self.validation.email_verify(email)

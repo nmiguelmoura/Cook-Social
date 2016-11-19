@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import urllib
 import json
 import secret_codes
@@ -18,7 +20,7 @@ class CaptchaValidation():
         # Assemble data to send to post method.
         recaptcha_validation = {
             "response": False,
-            "info": "Please check the box above to prove you are not a robot."
+            "info": "Por favor assinale a caixa acima."
         }
 
         try:

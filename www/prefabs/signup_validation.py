@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 
 
@@ -15,7 +17,7 @@ class SignupValidation:
         # If username valid, return it, else return error message.
         USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
         response = USER_RE.match(username)
-        info = "" if response else "Invalid username"
+        info = "" if response else "Nome de utilizador inválido."
         return {"response": response, "info": info}
 
     def check_password(self, password):
@@ -25,9 +27,9 @@ class SignupValidation:
         if password != "":
             response = PASS_RE.match(password)
             return {"response": response,
-                    "info": "" if response else "Invalid password"}
+                    "info": "" if response else "Palavra-passe inválida."}
 
-        return {"response": None, "info": "Invalid password."}
+        return {"response": None, "info": "Palavra-passe inválida."}
 
     def compare_password(self, password, verify):
         if (password == verify):
@@ -37,7 +39,7 @@ class SignupValidation:
 
         # If password and verification password don't match, return
         # error message.
-        return {"response": False, "info": "Verification password don't match."}
+        return {"response": False, "info": "As palavras-passe não coincidem."}
 
     def test_password(self, password, verify):
         # Check if password is valid.
@@ -56,5 +58,5 @@ class SignupValidation:
         # If email is valid, return it, else return error message.
         EMAIL_RE = re.compile(r"^[\S]+@[\S]+.[\S]+$")
         response = EMAIL_RE.match(email)
-        info = "" if response else "Invalid email."
+        info = "" if response else "Email inválido."
         return {"response": response, "info": info}

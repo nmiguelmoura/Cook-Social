@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import time
 import handler
 import prefabs.db_query_recipes
@@ -70,7 +72,8 @@ class NewCommentHandler(handler.Handler):
         else:
             # If comment field is empty, render page with error message.
             self.render("new_comment.html",
-                        error_comment="The comment field is empty. Please insert a valid comment.")
+                        error_comment="O campo destinado ao comentário está vazio."
+                                      " Por favor insira um comentário válido..")
 
     def data_verification(self, t):
         # Verify if user is logged in and recipe exists.

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import webapp2
 import main_handler

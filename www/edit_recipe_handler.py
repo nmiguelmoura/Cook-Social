@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import time
 import handler
 import prefabs.cookie_handler
@@ -111,9 +113,9 @@ class EditRecipeHandler(handler.Handler):
             prep_time_validation = self.recipe_validation.validate_prep_time(
                 prep_time)
             ingredients_validation = self.recipe_validation.list_length_validation(
-                ingredients, "ingredient")
+                ingredients, "ingrediente")
             steps_validation = self.recipe_validation.list_length_validation(
-                steps, "step")
+                steps, "passo")
 
             if title_validation["response"] and prep_time_validation[
                 "response"] and ingredients_validation[
