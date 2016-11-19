@@ -26,7 +26,7 @@ class MyRecipesHandler(handler.Handler):
             recipes = self.query_recipes.search_recipes_by_user_id(user_id)
 
             # If user has no recipes, store error_message.
-            no_recipes_message = "" if recipes.count() > 0 else "Este cozinheiro ainda não publicou nenuma receita"
+            no_recipes_message = "" if recipes.count() > 0 else u"Este cozinheiro ainda não publicou nenhuma receita"
 
             # Render recipes page.
             self.render("my_recipes.html", username=username, recipes=recipes,

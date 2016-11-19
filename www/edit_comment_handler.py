@@ -43,8 +43,8 @@ class EditCommentHandler(handler.Handler):
             # If comment field is empty, render page with error message.
             self.render("edit_comment.html", id=self.get_comment_id(),
                         recipe_id=comment.recipe_id,
-                        error_comment="O campo destinado ao comentário está vazio."
-                                      " Por favor insira um comentário válido.")
+                        error_comment=u"O campo destinado ao comentário está vazio."
+                                      u" Por favor insira um comentário válido.")
 
     def validation(self, t):
         # Check if comment_id exists and comment author id matches

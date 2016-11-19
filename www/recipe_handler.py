@@ -139,8 +139,8 @@ class RecipeHandler(handler.Handler):
                                  values["recipe_author"], values["user_id"],
                                  values["user_pointed"], values["comments"],
                                  alert_window=True,
-                                 alert_message="Não pode votar nas suas próprias "
-                                               "receitas!")
+                                 alert_message=u"Não pode votar nas suas próprias "
+                                               u"receitas!")
             else:
                 # If logged user is not recipe author, allow to add or
                 # remove point.

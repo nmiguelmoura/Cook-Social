@@ -53,7 +53,7 @@ class ForgotPasswordHandler(handler.Handler):
             else:
                 # If email is not registered, render page with error message.
                 self.render("forgot_password.html", email=email,
-                            error_email="This email is not registered.")
+                            error_email=u"This email is not registered.")
         else:
             # If email is not valid, render page with error message.
             self.render("forgot_password.html", email=email,

@@ -72,8 +72,8 @@ class NewCommentHandler(handler.Handler):
         else:
             # If comment field is empty, render page with error message.
             self.render("new_comment.html",
-                        error_comment="O campo destinado ao comentário está vazio."
-                                      " Por favor insira um comentário válido..")
+                        error_comment=u"O campo destinado ao comentário está vazio."
+                                      u" Por favor insira um comentário válido.")
 
     def data_verification(self, t):
         # Verify if user is logged in and recipe exists.

@@ -13,27 +13,27 @@ class MessageToUserHandler(handler.Handler):
         title = None
         message = None
         if type == "contact":
-            title = "Questão / sugestão enviada"
-            message = "As suas questões  ou sugestões foram enviadas " \
-                      "Responderemos com a maior brevidade possível. Obrigado."
+            title = u"Questão / sugestão enviada"
+            message = u"As suas questões  ou sugestões foram enviadas " \
+                      u"Responderemos com a maior brevidade possível. Obrigado."
         elif type == "comment_permission_error":
-            title = "Acesso não autorizado"
-            message = "Não está autorizado(a) a editar este comentário. " \
-                      "Apenas pode editar os seus próprios comentários."
+            title = u"Acesso não autorizado"
+            message = u"Não está autorizado(a) a editar este comentário. " \
+                      u"Apenas pode editar os seus próprios comentários."
         elif type == "recipe_not_found":
-            title = "Receita não encontrada"
-            message = "A receita que indicou não foi encontrada!"
+            title = u"Receita não encontrada"
+            message = u"A receita que indicou não foi encontrada!"
         elif type == "permission_error":
-            title = "Acesso não autorizado"
-            message = "Não está autorizado(a) a editar esta receita. " \
-                      "Apenas pode editar as suas próprias receitas."
+            title = u"Acesso não autorizado"
+            message = u"Não está autorizado(a) a editar esta receita. " \
+                      u"Apenas pode editar as suas próprias receitas."
         elif type == "unexpected_error":
-            title = "Erro inesperado"
-            message = "Ocorreu um erro inesperado. " \
-                      "Por favor tente novamente."
+            title = u"Erro inesperado"
+            message = u"Ocorreu um erro inesperado. " \
+                      u"Por favor tente novamente."
         else:
-            title = "Página não encontrada"
-            message = "A página que solicitou não existe!"
+            title = u"Página não encontrada"
+            message = u"A página que solicitou não existe!"
 
         # Render page with corresponding title and message.
         self.render("message_to_user.html", title=title, message=message)

@@ -22,7 +22,7 @@ class SendMessage:
     def send_password(self, sendTo, password):
         # Compose message if user requests new password
         msg = MIMEText(
-            'Recuperação de palavra-passe. A sua nova palavra-passe é: "%s"' % password)
+            'Recuperação de palavra-passe. A sua nova palavra-passe é: "%s"' % password, "plain", "utf-8")
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCooks@SocialCooks.org"
         msg['To'] = sendTo

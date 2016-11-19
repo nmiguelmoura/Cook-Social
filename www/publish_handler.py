@@ -87,9 +87,9 @@ class PublishHandler(handler.Handler):
             prep_time_validation = self.recipe_validation.validate_prep_time(
                 prep_time)
             ingredients_validation = self.recipe_validation.list_length_validation(
-                ingredients, "ingrediente")
+                ingredients, u"ingrediente")
             steps_validation = self.recipe_validation.list_length_validation(
-                steps, "passo")
+                steps, u"passo")
 
             if title_validation["response"] and prep_time_validation[
                 "response"] and ingredients_validation["response"] and \

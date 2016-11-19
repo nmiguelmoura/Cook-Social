@@ -60,8 +60,8 @@ class SignupHandler(handler.Handler):
                 self.store_data(username, email, password)
             else:
                 # If username is unavailable, render page with error message.
-                message = "Este nome de utilizador já se encontra registado, " \
-                          "por favor escolha outro."
+                message = u"Este nome de utilizador já se encontra registado, " \
+                          u"por favor escolha outro."
                 self.render('sign_up.html', username=username, email=email,
                             error_username=message)
         else:

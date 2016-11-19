@@ -19,8 +19,8 @@ class ContactHandler(handler.Handler):
         message = self.request.get("message")
 
         # Generate error message if comment box is empty.
-        error_comment = "Mensagem sem conteúdo. Por favor envie-nos as suas" \
-                        " questões ou sugestões." if message == "" else ""
+        error_comment = u"Mensagem sem conteúdo. Por favor envie-nos as suas" \
+                        u" questões ou sugestões." if message == "" else ""
 
         # Validate email.
         email_validation = self.validation.email_verify(email)
