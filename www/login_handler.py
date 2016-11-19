@@ -42,7 +42,7 @@ class LoginHandler(handler.Handler):
         # Id user does not exist or password doesn't match, render page with
         # error message.
         self.render('login.html', username=username,
-                    error_message="Nome de utilizador ou palavra-chave invalida.")
+                    error_message="Nome de utilizador ou palavra-chave inválida.")
 
     def verify_password(self, existing_user, given_password):
         # Compare password posted and stored and return result.
