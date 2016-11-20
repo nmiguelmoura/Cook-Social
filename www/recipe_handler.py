@@ -14,7 +14,7 @@ class RecipeHandler(handler.Handler):
     cookies = prefabs.cookie_handler.CookieHandler()
 
     def render_page(self, id, recipe, author, user_id, user_pointed, comments,
-                    alert_window=False, alert_message=""):
+                    no_comments_message, alert_window=False, alert_message=""):
         # Render page with all parameters
         self.render("recipe.html", id=id, title=recipe.title, author=author,
                     author_id=recipe.user_id,
@@ -22,6 +22,7 @@ class RecipeHandler(handler.Handler):
                     ingredients=recipe.ingredients, steps=recipe.steps,
                     user_id=user_id, points=recipe.points,
                     user_pointed=user_pointed, comments=comments,
+                    no_comments_message=no_comments_message,
                     alert_window=alert_window, alert_message=alert_message)
 
     def check_if_user_pointed(self, user, recipe_id):
@@ -52,6 +53,11 @@ class RecipeHandler(handler.Handler):
         # Get recipe comments.
         comments = self.get_comments(id)
 
+        # Get comment message in case there are no comments in the recipe yet.
+        no_comment_message = "" if comments.count() > 0 else "This recipe" \
+                                                            " has no " \
+                                                            "comments yet"
+
         user = None
         user_pointed = None
 
@@ -72,7 +78,8 @@ class RecipeHandler(handler.Handler):
             "user_id": user_id,
             "user": user,
             "user_pointed": user_pointed,
-            "comments": comments
+            "comments": comments,
+            "no_comments_message": no_comment_message
         }
 
     def manage_point(self, values):
@@ -114,7 +121,8 @@ class RecipeHandler(handler.Handler):
             # If recipe exists, render recipe page with corresponding data.
             self.render_page(values["id"], values["recipe"],
                              values["recipe_author"], values["user_id"],
-                             values["user_pointed"], values["comments"])
+                             values["user_pointed"], values["comments"],
+                             values["no_comments_message"])
         else:
             # If recipe does not exist, redirect to error message page.
             self.redirect("/messagetouser?type=notfound")
@@ -136,6 +144,7 @@ class RecipeHandler(handler.Handler):
                 self.render_page(values["id"], values["recipe"],
                                  values["recipe_author"], values["user_id"],
                                  values["user_pointed"], values["comments"],
+                                 values["no_comments_message"],
                                  alert_window=True,
                                  alert_message="You can't vote in your own recipes!")
             else:
@@ -146,7 +155,8 @@ class RecipeHandler(handler.Handler):
                 # Render page with parameters.
                 self.render_page(values["id"], values["recipe"],
                                  values["recipe_author"], values["user_id"],
-                                 values["user_pointed"], values["comments"])
+                                 values["user_pointed"], values["comments"],
+                                 values["no_comments_message"])
         else:
             # If user is logged out, redirect to login page.
             self.redirect("/login")
