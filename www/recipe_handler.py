@@ -56,9 +56,9 @@ class RecipeHandler(handler.Handler):
         comments = self.get_comments(id)
 
         # Get comment message in case there are no comments in the recipe yet.
-        no_comment_message = "" if comments.count() > 0 else "This recipe" \
-                                                            " has no " \
-                                                            "comments yet"
+        no_comment_message = "" if comments.count() > 0 else \
+            u"Esta receita ainda não tem comentários. Seja " \
+            u"o primeiro a comentar."
 
         user = None
         user_pointed = None
