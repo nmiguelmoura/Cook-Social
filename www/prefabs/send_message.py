@@ -30,7 +30,7 @@ class SendMessage:
 
     def send_contact(self, email, message):
         # Compose message if user sends message to portal
-        msg = MIMEText('Olá Nuno, "%s" enviou a seguinte mensagem: "%s"' % (
+        msg = MIMEText('Ola Nuno, "%s" enviou a seguinte mensagem: "%s"' % (
         email, message), "plain", "utf-8")
         msg['Subject'] = "Hello"
         msg['From'] = "SocialCooks@SocialCooks.org"
