@@ -32,6 +32,19 @@
             </a>
             {% endfor %}
         </div>
+        <div class="wrapper-inside btns-nav-recipes">
+            {% if offset_previous %}
+            <div class="btn-more padded-col-sm-12-12 padded-col-md-6-12">
+                <a href="/top?page={{offset_previous_page}}" class="button"><p>Ver anteriores</p></a>
+            </div>
+            {% endif %}
+
+            {% if offset_next %}
+            <div class="btn-more padded-col-sm-12-12 padded-col-md-6-12">
+                <a href="/top?page={{offset_next_page}}" class="button"><p>Ver mais</p></a>
+            </div>
+            {% endif %}
+        </div>
     </section>
     <section class="padded-col-sm-12-12">
         <div class="other-options">

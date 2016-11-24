@@ -24,7 +24,7 @@ class DBQueryRecipes:
     def search_top_recipes(self, limit, offset):
         # Query recipes based on points.
         # Limits results to given number.
-        recipes = db.GqlQuery("SELECT * FROM RecipesDBModel ORDER BY points DESC LIMIT %s" % (limit, offset))
+        recipes = db.GqlQuery("SELECT * FROM RecipesDBModel ORDER BY points DESC LIMIT %s OFFSET %s" % (limit, offset))
         return recipes
 
     def search_recipes_by_user_id(self, id):
