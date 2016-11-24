@@ -43,8 +43,11 @@ class RecipeHandler(handler.Handler):
         # Get recipe id.
         id = self.request.get("id")
 
-        # Get recipe entity from db.
-        recipe = self.query_recipes.search_recipes_by_id(id)
+        if id:
+            # Get recipe entity from db.
+            recipe = self.query_recipes.search_recipes_by_id(id)
+        else:
+            return
 
         # Get recipe author.
         author = recipe.user
@@ -119,7 +122,7 @@ class RecipeHandler(handler.Handler):
         # Get recipe data.
         values = self.get_values()
 
-        if values["recipe"]:
+        if values and values["recipe"]:
             # If recipe exists, render recipe page with corresponding data.
             self.render_page(values["id"], values["recipe"],
                              values["recipe_author"], values["user_id"],
