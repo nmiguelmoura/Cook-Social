@@ -4,6 +4,7 @@ import handler
 import prefabs.db_query_users
 import prefabs.cookie_handler
 import prefabs.hash_tools
+import prefabs.signup_validation
 
 
 class LoginHandler(handler.Handler):
@@ -12,6 +13,7 @@ class LoginHandler(handler.Handler):
     hashs = prefabs.hash_tools.HashTools()
     cookies = prefabs.cookie_handler.CookieHandler()
     query_users = prefabs.db_query_users.DBQueryUsers()
+    signup_validation = prefabs.signup_validation.SignupValidation()
 
     def get(self):
         if self.cookies.get_loginfo_cookie(self):
@@ -26,8 +28,17 @@ class LoginHandler(handler.Handler):
         username = self.request.get("username")
         password = self.request.get("password")
 
-        # Check if user exists in db.
-        existing_user = self.query_users.search_user(username)
+        # Check if log info is username or email
+        # Verify if is email
+        log_info_is_email = self.signup_validation.email_verify(username)
+        if log_info_is_email["response"]:
+            # Its an email
+            # Check if email exists in db.
+            existing_user = self.query_users.search_email(username)
+        else:
+            # Its a username
+            # Check if user exists in db.
+            existing_user = self.query_users.search_user(username)
 
         if existing_user:
             # If user exists in db, verify password.
