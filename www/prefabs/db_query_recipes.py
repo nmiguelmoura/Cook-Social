@@ -15,13 +15,13 @@ class DBQueryRecipes:
         for r in recipes:
             return r
 
-    def search_new_recipes(self, limit, offset):
+    def search_new_recipes(self, limit, offset=0):
         # Query recipes based on creation date.
         # Limits results to given number.
         recipes = db.GqlQuery("SELECT * FROM RecipesDBModel ORDER BY created DESC LIMIT %s OFFSET %s" % (limit, offset))
         return recipes
 
-    def search_top_recipes(self, limit, offset):
+    def search_top_recipes(self, limit, offset=0):
         # Query recipes based on points.
         # Limits results to given number.
         recipes = db.GqlQuery("SELECT * FROM RecipesDBModel ORDER BY points DESC LIMIT %s OFFSET %s" % (limit, offset))
