@@ -55,15 +55,27 @@ class SignupHandler(handler.Handler):
             # Check if username is available.
             username_available = self.check_username_availability(username)
 
-            if username_available:
+            # Check if email is available
+            email_available = self.check_email_availability(email)
+
+            if username_available and email_available:
                 # If username is available, store data in db.
                 self.store_data(username, email, password)
             else:
-                # If username is unavailable, render page with error message.
-                message = u"Este nome de utilizador já se encontra registado, " \
+                message_username = ""
+                message_email = ""
+                if not username_available:
+                    # If username is unavailable, render page with error message.
+                    message_username = u"Este nome de utilizador já se encontra registado, " \
                           u"por favor escolha outro."
+
+                if not email_available:
+                    # If email is unavailable, render page with error message.
+                    message_email = u"Este email já se encontra registado. " \
+                          u"por favor escolha outro email ou utilize este para fazer login."
+
                 self.render('sign_up.html', username=username, email=email,
-                            error_username=message)
+                            error_username=message_username, error_email=message_email)
         else:
             # If posted data is invalid, render page with corresponding error messages.
             self.render('sign_up.html', username=username, email=email,
@@ -76,6 +88,12 @@ class SignupHandler(handler.Handler):
         # Query users to check if username chosen is already in use and
         # return accordingly.
         user = self.query_users.search_user(username)
+        return False if user else True
+
+    def check_email_availability(self, email):
+        # Query users to check if email chosen is already in use and
+        # return accordingly.
+        user = self.query_users.search_email(email)
         return False if user else True
 
     def store_data(self, username, email, password):
