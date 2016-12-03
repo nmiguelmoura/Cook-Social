@@ -41,7 +41,7 @@ class PublishHandler(handler.Handler):
             # Get posted recipe title.
             title = self.request.get("title")
 
-            # Get category
+            # Get category.
             category = self.request.get("category")
 
             # Get posted recipe preparation time.
