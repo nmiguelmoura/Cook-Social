@@ -49,6 +49,7 @@ class EditRecipeHandler(handler.Handler):
             recipe = validation_data["recipe"]
             self.render("edit_recipe.html", id=validation_data["id"],
                         title=recipe.title, prep_time=recipe.prep_time,
+                        category=recipe.category,
                         num_ingredients=len(recipe.ingredients),
                         ingredients=recipe.ingredients,
                         num_steps=len(recipe.steps),
@@ -66,6 +67,9 @@ class EditRecipeHandler(handler.Handler):
 
             # Get new title posted by user.
             title = self.request.get("title")
+
+            # Get category.
+            category = self.request.get("category")
 
             # Get new preparation time posted by user
             prep_time = self.request.get("prep_time")
@@ -110,6 +114,8 @@ class EditRecipeHandler(handler.Handler):
 
             # Check if data posted is valid.
             title_validation = self.recipe_validation.validate_title(title)
+            category_validation = self.recipe_validation.validate_category(
+                category)
             prep_time_validation = self.recipe_validation.validate_prep_time(
                 prep_time)
             ingredients_validation = self.recipe_validation.list_length_validation(
@@ -117,11 +123,14 @@ class EditRecipeHandler(handler.Handler):
             steps_validation = self.recipe_validation.list_length_validation(
                 steps, u"passo")
 
-            if title_validation["response"] and prep_time_validation[
-                "response"] and ingredients_validation[
-                "response"] and steps_validation["response"]:
+            if title_validation["response"] and \
+                    category_validation["response"] and \
+                    prep_time_validation["response"] and \
+                    ingredients_validation["response"] and \
+                    steps_validation["response"]:
                 # If data posted is valid, udpdate recipe entity.
                 recipe.title = title
+                recipe.category = category
                 recipe.prep_time = int(prep_time)
                 recipe.ingredients = ingredients
                 recipe.steps = steps
@@ -145,8 +154,10 @@ class EditRecipeHandler(handler.Handler):
                 # If data posted is not valid, render page with error messages.
                 self.render("edit_recipe.html", id=validation_data["id"],
                             title=title, prep_time=prep_time,
+                            category=category,
                             ingredients=ingredients, steps=steps,
                             error_title=title_validation["info"],
+                            error_category=category_validation["info"],
                             error_prep_time=prep_time_validation["info"],
                             error_ingredients=ingredients_validation["info"],
                             error_steps=steps_validation["info"],
