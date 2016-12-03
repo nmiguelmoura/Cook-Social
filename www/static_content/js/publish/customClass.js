@@ -138,7 +138,7 @@ cookSocial.CustomClass = (function () {
 
     CustomClass.prototype._getReferences = function () {
         // Get select boxes references.
-        this._selects = document.getElementsByTagName('select');
+        this._selects = document.getElementsByClassName('num_select');
 
         // Get ingredient divs and inputs.
         var ingredients = this._getInputDivs('ingredients', 'input');
