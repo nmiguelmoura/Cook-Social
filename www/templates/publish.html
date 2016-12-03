@@ -18,7 +18,7 @@
                 <div class="label">
                     <p>Categoria</p>
                     <select name="category" data-pre-value="{{category}}">
-                        <option value="0">--Selecione a categoria--</option>
+                        <option value="0" disabled>--Selecione a categoria--</option>
                         <option value="entrada">Entrada</option>
                         <option value="sopa">Cremes e sopas</option>
                         <option value="saladas">Saladas</option>
@@ -27,6 +27,7 @@
                         <option value="vegetariano">Vegetariano</option>
                         <option value="Sobremesa">Sobremesa</option>
                     </select>
+                    <p class="error-message">{{error_category}}</p>
                 </div>
                 <div class="label">
                     <p>Preparation time (in minutes)</p>
