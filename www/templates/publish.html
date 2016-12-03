@@ -16,6 +16,19 @@
                     <p class="error-message">{{error_title}}</p>
                 </div>
                 <div class="label">
+                    <p>Categoria</p>
+                    <select name="category" data-pre-value="{{category}}">
+                        <option value="0">--Selecione a categoria--</option>
+                        <option value="entrada">Entrada</option>
+                        <option value="sopa">Cremes e sopas</option>
+                        <option value="saladas">Saladas</option>
+                        <option value="carne">Carne</option>
+                        <option value="peixe">Peixe</option>
+                        <option value="vegetariano">Vegetariano</option>
+                        <option value="Sobremesa">Sobremesa</option>
+                    </select>
+                </div>
+                <div class="label">
                     <p>Preparation time (in minutes)</p>
                     <input type="number" placeholder="Coloque aqui o tempo de preparação em minutos" name="prep_time" value="{{prep_time}}">
                     <p class="error-message">{{error_prep_time}}</p>
