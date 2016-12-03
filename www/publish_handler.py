@@ -128,6 +128,7 @@ class PublishHandler(handler.Handler):
                 # error messages.
                 self.render("publish.html", title=title, prep_time=prep_time,
                             ingredients=ingredients, steps=steps,
+                            category=category,
                             error_title=title_validation["info"],
                             error_category=category_validation["info"],
                             error_prep_time=prep_time_validation["info"],
