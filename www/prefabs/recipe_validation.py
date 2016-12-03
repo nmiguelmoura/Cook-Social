@@ -46,3 +46,15 @@ class RecipeValidation:
             # If a given list is empty, return error message with given string.
             return {"response": None,
                     "info": u"Por favor indique pelo menos um %s." % string}
+
+    def validate_category(self, category):
+        if category and category != "0":
+            return {
+                "response": category,
+                "info": u""
+            }
+        else:
+            return {
+                "response": None,
+                "info": u"Por favor selecione uma categoria para a receita."
+            }
