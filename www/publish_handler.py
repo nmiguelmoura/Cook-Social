@@ -41,6 +41,9 @@ class PublishHandler(handler.Handler):
             # Get posted recipe title.
             title = self.request.get("title")
 
+            # Get category
+            category = self.request.get("category")
+
             # Get posted recipe preparation time.
             prep_time = self.request.get("prep_time")
 
@@ -84,6 +87,7 @@ class PublishHandler(handler.Handler):
 
             # Check if data posted is valid.
             title_validation = self.recipe_validation.validate_title(title)
+            category_validation = self.recipe_validation.validate_category(category)
             prep_time_validation = self.recipe_validation.validate_prep_time(
                 prep_time)
             ingredients_validation = self.recipe_validation.list_length_validation(
@@ -91,8 +95,10 @@ class PublishHandler(handler.Handler):
             steps_validation = self.recipe_validation.list_length_validation(
                 steps, u"passo")
 
-            if title_validation["response"] and prep_time_validation[
-                "response"] and ingredients_validation["response"] and \
+            if title_validation["response"] and \
+                    category_validation["response"] and \
+                    prep_time_validation["response"] and \
+                    ingredients_validation["response"] and \
                     steps_validation["response"]:
                 # If data posted is valid, store recipe entity.
 
@@ -101,6 +107,7 @@ class PublishHandler(handler.Handler):
                                                          user=user,
                                                          image=image if image else None,
                                                          title=title,
+                                                         category=category,
                                                          prep_time=int(
                                                              prep_time),
                                                          ingredients=ingredients,
@@ -122,6 +129,7 @@ class PublishHandler(handler.Handler):
                 self.render("publish.html", title=title, prep_time=prep_time,
                             ingredients=ingredients, steps=steps,
                             error_title=title_validation["info"],
+                            error_category=category_validation["info"],
                             error_prep_time=prep_time_validation["info"],
                             error_ingredients=ingredients_validation["info"],
                             error_steps=steps_validation["info"],
