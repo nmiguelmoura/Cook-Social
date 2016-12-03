@@ -79,12 +79,12 @@ cookSocial.CustomClass = (function () {
     };
 
     CustomClass.prototype._addListeners = function () {
-        var i, length = this._selects.length;
+        var i, length = this._selectNums.length;
         for (i = 0; i < length; i++) {
             // Adds an index value to each select box.
-            this._selects[i].key = i;
+            this._selectNums[i].key = i;
             // Adds listeners to both select boxes.
-            this._selects[i].addEventListener('change', this._selectChange.bind(this), false);
+            this._selectNums[i].addEventListener('change', this._selectChange.bind(this), false);
         }
     };
 
@@ -114,18 +114,18 @@ cookSocial.CustomClass = (function () {
         }
     };
 
-    CustomClass.prototype._getPreSelectValues = function(){
-        var i, length = this._selects.length;
+    CustomClass.prototype._getPreSelectNumValues = function(){
+        var i, length = this._selectNums.length;
         var preValue,
             preValues = [];
 
         for(i=0;i < length; i++){
             // Loop through select box to check if there are pre selected values. Thsi values are injected by server when needed.
             // If there are no pre selected values, user INITIAL_VALUE.
-            preValue = this._selects[i].getAttribute('data-pre-value') !== ''?this._selects[i].getAttribute('data-pre-value'):this.INITIAL_VALUE;
+            preValue = this._selectNums[i].getAttribute('data-pre-value') !== ''?this._selectNums[i].getAttribute('data-pre-value'):this.INITIAL_VALUE;
 
             // Make select value equal to preValue.
-            this._selects[i].value = preValue;
+            this._selectNums[i].value = preValue;
 
             // Push value in preVAlues array.
             preValues.push(preValue);
@@ -136,9 +136,19 @@ cookSocial.CustomClass = (function () {
         this._setInputNumber(this._steps, this._stepsMax, preValues[1]);
     };
 
+    CustomClass.prototype._getPreSelectCategoryValues = function(){
+        if(this._category.hasAttribute('data-pre-value-category')) {
+            var preValue = this._category.getAttribute('data-pre-value-category') !== ''?this._category.getAttribute('data-pre-value-category'):'0';
+            this._category.value = preValue;
+        }
+    };
+
     CustomClass.prototype._getReferences = function () {
-        // Get select boxes references.
-        this._selects = document.getElementsByClassName('num_select');
+        //Get select box for categories reference
+        this._category = document.getElementsByClassName('category')[0];
+
+        // Get select boxes for ingredient and step num references.
+        this._selectNums = document.getElementsByClassName('num_select');
 
         // Get ingredient divs and inputs.
         var ingredients = this._getInputDivs('ingredients', 'input');
@@ -159,8 +169,11 @@ cookSocial.CustomClass = (function () {
         // Get necessary references.
         this._getReferences();
 
+        //Get category select box pre value
+        this._getPreSelectCategoryValues();
+
         // Get select box pre values.
-        this._getPreSelectValues();
+        this._getPreSelectNumValues();
 
         // Add listeners to select box.
         this._addListeners();
