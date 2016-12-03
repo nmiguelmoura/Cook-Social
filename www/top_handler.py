@@ -17,7 +17,7 @@ class TopHandler(handler.Handler):
         offset = int(offset)
 
         # Query last 10 published recipes.  ordered by points.
-        limit = 1
+        limit = 10
         recipes = self.query_recipes.search_top_recipes(limit, offset)
 
         offset_previous = False
