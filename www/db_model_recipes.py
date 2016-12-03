@@ -8,6 +8,7 @@ class RecipesDBModel(db.Model):
     user_id = db.StringProperty(required=True)
     user = db.StringProperty(required=True)
     title = db.StringProperty(required=True)
+    category = db.StringProperty()
     prep_time = db.IntegerProperty(required=True)
     points = db.IntegerProperty(required=True)
     ingredients = db.ListProperty(str, required=True)
