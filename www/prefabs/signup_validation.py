@@ -17,7 +17,7 @@ class SignupValidation:
         # If username valid, return it, else return error message.
         USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
         response = USER_RE.match(username)
-        info = "" if response else u"Nome de utilizador inválido."
+        info = "" if response else u"Nome de utilizador inválido. Por favor insira um nome de utilizador com pelo menos 4 caractéres e sem espaços."
         return {"response": response, "info": info}
 
     def check_password(self, password):
