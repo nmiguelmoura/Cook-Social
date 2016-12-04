@@ -42,6 +42,7 @@ class RecipeHandler(handler.Handler):
     def get_values(self):
         # Get recipe id.
         id = self.request.get("id")
+        recipe = None
 
         if id:
             # Get recipe entity from db.
@@ -49,43 +50,48 @@ class RecipeHandler(handler.Handler):
         else:
             return
 
-        # Get recipe author.
-        author = recipe.user
+        if recipe:
+            # Run only if recipe exists.
 
-        # Get user id stored in cookie.
-        user_id = self.cookies.get_loginfo_cookie(self)
+            # Get recipe author.
+            author = recipe.user
 
-        # Get recipe comments.
-        comments = self.get_comments(id)
+            # Get user id stored in cookie.
+            user_id = self.cookies.get_loginfo_cookie(self)
 
-        # Get comment message in case there are no comments in the recipe yet.
-        no_comment_message = "" if comments.count() > 0 else \
-            u"Esta receita ainda não tem comentários. Seja " \
-            u"o primeiro a comentar."
+            # Get recipe comments.
+            comments = self.get_comments(id)
 
-        user = None
-        user_pointed = None
+            # Get comment message in case there are no comments in the recipe yet.
+            no_comment_message = "" if comments.count() > 0 else \
+                u"Esta receita ainda não tem comentários. Seja " \
+                u"o primeiro a comentar."
 
-        if user_id:
-            # Run if user is logged.
+            user = None
+            user_pointed = None
 
-            # Query user.
-            user = self.query_users.search_user_by_id(user_id)
+            if user_id:
+                # Run if user is logged.
 
-            # Check if user has already attributed 1 point to this recipe.
-            user_pointed = self.check_if_user_pointed(user, id)
+                # Query user.
+                user = self.query_users.search_user_by_id(user_id)
 
-        # Return relevant data.
-        return {
-            "id": id,
-            "recipe": recipe,
-            "recipe_author": author,
-            "user_id": user_id,
-            "user": user,
-            "user_pointed": user_pointed,
-            "comments": comments,
-            "no_comments_message": no_comment_message
-        }
+                # Check if user has already attributed 1 point to this recipe.
+                user_pointed = self.check_if_user_pointed(user, id)
+
+            # Return relevant data.
+            return {
+                "id": id,
+                "recipe": recipe,
+                "recipe_author": author,
+                "user_id": user_id,
+                "user": user,
+                "user_pointed": user_pointed,
+                "comments": comments,
+                "no_comments_message": no_comment_message
+            }
+        else:
+            return
 
     def manage_point(self, values):
         # Create var that points to user entity.

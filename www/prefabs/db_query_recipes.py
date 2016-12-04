@@ -12,6 +12,7 @@ class DBQueryRecipes:
     def search_recipes_by_id(self, id):
         # Query recipes based on recipe id.
         recipes = db.GqlQuery("SELECT * FROM RecipesDBModel WHERE __key__ = KEY('RecipesDBModel', " + str(id) + ")")
+
         for r in recipes:
             return r
 
